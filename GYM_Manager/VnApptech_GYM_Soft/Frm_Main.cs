@@ -21,10 +21,9 @@ namespace VnApptech_GYM_Soft
         public Frm_Main()
         {
             InitializeComponent();
+            cls_Main.docfilecauhinh(ref err, cls_Main.pathconfig);
             cls_Main.Frm_Main = this;
-            
-         
-            this.Text = cls_Main.tieude_frmMain;
+            this.Text = cls_Main.title;
             this.ribbon.Toolbar.ItemLinks.Add(this.barSubItem1);
 
             this.barSubItem1.Popup += new System.EventHandler(this.barSubItem1_Popup);                    
@@ -152,7 +151,6 @@ namespace VnApptech_GYM_Soft
                 lblsongaysudung.Appearance.ForeColor = Color.Red;
             }
             //Phân quyền
-
             phanquyen();
             #endregion 
 
@@ -174,7 +172,6 @@ namespace VnApptech_GYM_Soft
             }
             #endregion
 
-           
         }
         private bool checkOpenTabs(string name)
         {
@@ -425,6 +422,24 @@ namespace VnApptech_GYM_Soft
         public void showToolText(string text)
         {
             notifyIcon1.BalloonTipText = text;
+        }
+
+        private void btnphanquyen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sTieuDe = "Phân quyền";
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabMain.CreateTab(sTieuDe);
+                t.Name = "Frm_PhanQuyen";
+                Frm_PhanQuyen dt = new Frm_PhanQuyen();
+                dt.deDongTab = new Frm_PhanQuyen._deDongTab(vDOngTab);
+                dt.frm = this;
+                dt.TopLevel = false;
+                dt.Dock = DockStyle.Fill;
+                t.AttachedControl.Controls.Add(dt);
+                dt.Show();
+                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+            }
         }
 
 

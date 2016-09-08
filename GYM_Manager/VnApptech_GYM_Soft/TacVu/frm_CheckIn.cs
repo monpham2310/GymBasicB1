@@ -18,11 +18,28 @@ namespace VnApptech_GYM_Soft.TacVu
     /// 4. thiết bị vân tay 4500
     /// 5. Thiết bị máy chấm công
     /// </summary>
-    public partial class frm_CheckIn : Form
+    public partial class frm_CheckIn : DevExpress.XtraEditors.XtraForm
     {
         public frm_CheckIn()
         {
             InitializeComponent();
+        }
+
+        private void frm_CheckIn_Load(object sender, EventArgs e)
+        {
+            switch (cls_Main.deviceType)
+            {
+                case 0://Thiết bị mã vạch và ufid 125; Khởi động thiết bị
+
+                    break;
+                case 1://Thiết bị vân tay; Khởi động thiết bị
+                    break;
+                case 2://Thiết bị rfid 13.5; Khởi động thiết bị
+                    break;
+                default:
+                    MessageBox.Show("Thiết bị không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+            }
         }
     }
 }

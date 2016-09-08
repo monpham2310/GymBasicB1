@@ -30,15 +30,17 @@
         {
             this.SuspendLayout();
             // 
-            // frm_CheckInMaVach
+            // frm_CheckIn
             // 
+            this.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 254);
-            this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientSize = new System.Drawing.Size(989, 487);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "frm_CheckInMaVach";
+            this.Name = "frm_CheckIn";
             this.Text = "frm_CheckInMaVach";
+            this.Load += new System.EventHandler(this.frm_CheckIn_Load);
             this.ResumeLayout(false);
 
         }

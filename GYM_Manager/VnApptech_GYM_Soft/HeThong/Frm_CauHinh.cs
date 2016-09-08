@@ -19,7 +19,7 @@ namespace VnApptech_GYM_Soft
         }
 
         #region khaibaobien
-       
+        string err = "";
         #endregion
         private void btnthoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -37,24 +37,7 @@ namespace VnApptech_GYM_Soft
         ArrayList giatri = new ArrayList();
         private void Frm_CauHinh_Load(object sender, EventArgs e)
         {
-            //int i = 0;
-            cls_Main.docfilecauhinh(ref tenbien ,ref giatri,Application.StartupPath + @"\Conf.ini");
-            //foreach (string item in tenbien)
-            //{
-            //    dgvdanhsachbien.Rows[i].Cells["colstt"].Value = i + 1;
-            //    dgvdanhsachbien.Rows[i].Cells["coltenbien"].Value = item;
-               
-            //    i++;
-            //}
-            //int j = 0;
-            //foreach (string item in giatri)
-            //{
-            //    dgvdanhsachbien.Rows[j].Cells["colgiatri"].Value = item;
-            //    j++;
-            //}
-               
-            
-            
+            cls_Main.docfilecauhinh(ref err, cls_Main.pathconfig);
         }
 
        

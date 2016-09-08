@@ -6,16 +6,20 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using VnApptech_GYM_Soft.HeThong;
 
 namespace VnApptech_GYM_Soft
 {
     public partial class cls_Main
     {
         #region Các biến toàn cục
-
-        public static string tieude_frmMain = "Chương trình quản lý GYM";
-        public static int NumberCard = 8; //lưu số ký tự mã vạch, rfid
-
+        //các biến về cấu hình ban đầu của chương trình
+        //các biến này được lưu trong file config.ini
+        //---------------07-09-2016------------------
+        public static string title = "";
+        public static int numberCard = 0;//số ký tự của mã vạch và rfid
+        public static int deviceType = 0;//0:mã vạch và mã rfid 125;1:vân tay; 2: mã rfid 13.5
+        //-------------------------------------------------------------------------------
         public static string chuoimahoaDemo = "";//chuỗi ký tự lưu khi chưa có key
         public static int songayconlai = 0;
         
@@ -24,6 +28,9 @@ namespace VnApptech_GYM_Soft
         public static string err = "";//lưu thông tin lỗi của tất cả các lỗi.
         //Thiết bị
         public static string pathconnect = Application.StartupPath + @"\Connect.ini";//lưu đường dẫn chuỗi kết nối.
+        //lưu đường dẫn file cấu hình.
+        public static string pathconfig = Application.StartupPath + @"\Config.ini";
+        
         //form
         public static Frm_Main Frm_Main;
         public static Frm_Login frmLogin;
@@ -37,52 +44,26 @@ namespace VnApptech_GYM_Soft
         public static string database = "";
         public static string uid = "";
         public static string pass = "";
+
+       
         #endregion
         #endregion
 
         #region Các phương thức tĩnh
-
-        public static void docfilecauhinh(ref ArrayList bien, ref ArrayList giatri, string path)
+        static BLL_HeThong bd = new BLL_HeThong(pathconnect);
+        public static int GetPermission(ref string err, int mataikhoan, string tenfrm)
         {
-            try
+            object o = null;
+            o = bd.GetPermission(ref err, mataikhoan, tenfrm);
+            if (o != null)
             {
-                using (StreamReader _reader = new StreamReader(path))
-                {
-                    string line = "";
-                    while ((line = _reader.ReadLine()) != null)
-                    {
-                        switch (line.Substring(0, line.IndexOf('=')).ToLower())
-                        {
-                            case "tieudefrmmain"://servername=nguyenminhphuc
-                                cls_Main.tieude_frmMain = line.Substring(line.IndexOf('=') + 1);
-                                bien.Add(line.Substring(0, line.IndexOf('=')));
-                                giatri.Add(line.Substring(line.IndexOf('=') + 1));
-                                break;
-                            case "numbercard"://servername=nguyenminhphuc
-                                cls_Main.NumberCard = Convert.ToInt32(line.Substring(line.IndexOf('=') + 1));
-                                bien.Add(line.Substring(0, line.IndexOf('=')));
-                                giatri.Add(line.Substring(line.IndexOf('=') + 1));
-                                break;
-                            case "portone"://servername=nguyenminhphuc
-
-                                bien.Add(line.Substring(0, line.IndexOf('=')));
-                                giatri.Add(line.Substring(line.IndexOf('=') + 1));
-                                break;
-                            case "Porttwo"://servername=nguyenminhphuc
-
-                                bien.Add(line.Substring(0, line.IndexOf('=')));
-                                giatri.Add(line.Substring(line.IndexOf('=') + 1));
-                                break;
-                        }
-                    }
-                }
+                return (int)o;
             }
-            catch (Exception ex)
+            else
             {
-                err = ex.Message;
+                return 0;
             }
         }
-
         public static void docfilecauhinh(ref string err, string path)
         {
             try
@@ -95,10 +76,13 @@ namespace VnApptech_GYM_Soft
                         switch (line.Substring(0, line.IndexOf('=')).ToLower())
                         {
                             case "numbercard":
-                                NumberCard = Convert.ToInt32(line.Substring(line.IndexOf('=') + 1));
+                                numberCard = Convert.ToInt32(line.Substring(line.IndexOf('=') + 1));
                                 break;
-                            case "tieudefrmmain":
-                                tieude_frmMain = line.Substring(line.IndexOf('=') + 1);
+                            case "title":
+                                title = line.Substring(line.IndexOf('=') + 1);
+                                break;
+                            case "devicetype":
+                                deviceType = Convert.ToInt32(line.Substring(line.IndexOf('=') + 1));
                                 break;
                         }
                     }

@@ -1,6 +1,6 @@
-﻿namespace VnApptech_GYM_Soft.TacVu
+﻿namespace VnApptech_GYM_Soft.ThongKe
 {
-    partial class frm_GhiDanh
+    partial class Frm_BangKeLichSuRaVaoTheoThoiGian
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,16 @@
         {
             this.SuspendLayout();
             // 
-            // frm_GhiDanh
+            // Frm_BangKeLichSuRaVaoTheoThoiGian
             // 
+            this.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 382);
-            this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "frm_GhiDanh";
-            this.Text = "frm_GhiDanh";
-            this.Load += new System.EventHandler(this.frm_GhiDanh_Load);
+            this.ClientSize = new System.Drawing.Size(426, 381);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "Frm_BangKeLichSuRaVaoTheoThoiGian";
+            this.Text = "Frm_BangKeLichSuRaVaoTheoThoiGian";
             this.ResumeLayout(false);
 
         }

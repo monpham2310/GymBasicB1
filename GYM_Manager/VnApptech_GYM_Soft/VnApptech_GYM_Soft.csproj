@@ -206,6 +206,12 @@
     <Compile Include="Frm_Main.Designer.cs">
       <DependentUpon>Frm_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeThong\Frm_PhanQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeThong\Frm_PhanQuyen.designer.cs">
+      <DependentUpon>Frm_PhanQuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="HeThong\Frm_SaoLuuPhucHoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,24 @@
       <DependentUpon>frm_GhiDanh.cs</DependentUpon>
     </Compile>
     <Compile Include="ThongKe\BLL_ThongKe.cs" />
+    <Compile Include="ThongKe\Frm_BangKeLichSuDangKyTheoThoiGian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKe\Frm_BangKeLichSuDangKyTheoThoiGian.Designer.cs">
+      <DependentUpon>Frm_BangKeLichSuDangKyTheoThoiGian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\Frm_BangKeLichSuRaVaoTheoThoiGian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKe\Frm_BangKeLichSuRaVaoTheoThoiGian.Designer.cs">
+      <DependentUpon>Frm_BangKeLichSuRaVaoTheoThoiGian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe\Frm_DoanhThuTheoGoiTap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKe\Frm_DoanhThuTheoGoiTap.Designer.cs">
+      <DependentUpon>Frm_DoanhThuTheoGoiTap.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DanhMuc\Frm_CaLamViec_Main.resx">
       <DependentUpon>Frm_CaLamViec_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +309,9 @@
     <EmbeddedResource Include="Frm_Main.resx">
       <DependentUpon>Frm_Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HeThong\Frm_PhanQuyen.resx">
+      <DependentUpon>Frm_PhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\Frm_SaoLuuPhucHoi.resx">
       <DependentUpon>Frm_SaoLuuPhucHoi.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +329,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TacVu\frm_GhiDanh.resx">
       <DependentUpon>frm_GhiDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\Frm_BangKeLichSuDangKyTheoThoiGian.resx">
+      <DependentUpon>Frm_BangKeLichSuDangKyTheoThoiGian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\Frm_BangKeLichSuRaVaoTheoThoiGian.resx">
+      <DependentUpon>Frm_BangKeLichSuRaVaoTheoThoiGian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKe\Frm_DoanhThuTheoGoiTap.resx">
+      <DependentUpon>Frm_DoanhThuTheoGoiTap.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">

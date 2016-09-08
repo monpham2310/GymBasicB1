@@ -178,3 +178,4 @@ D:\1@PhanMemViet\Git\GYM_Manager\VnApptech_GYM_Soft\bin\Debug\de\DevExpress.Xtra
 D:\1@PhanMemViet\Git\GYM_Manager\VnApptech_GYM_Soft\bin\Debug\es\DevExpress.XtraVerticalGrid.v13.2.resources.dll
 D:\1@PhanMemViet\Git\GYM_Manager\VnApptech_GYM_Soft\bin\Debug\ja\DevExpress.XtraVerticalGrid.v13.2.resources.dll
 D:\1@PhanMemViet\Git\GYM_Manager\VnApptech_GYM_Soft\bin\Debug\ru\DevExpress.XtraVerticalGrid.v13.2.resources.dll
+D:\1@PhanMemViet\Git\GYM_Manager\VnApptech_GYM_Soft\obj\x86\Debug\VnApptech_GYM_Soft.HeThong.Frm_PhanQuyen.resources

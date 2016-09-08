@@ -84,6 +84,7 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tabMain = new DevComponents.DotNetBar.TabControl();
+            this.btnphanquyen = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
@@ -128,9 +129,10 @@
             this.lblsongaysudung,
             this.btncalamviec,
             this.btnquanlyravao,
-            this.btnGhiDanhCty});
+            this.btnGhiDanhCty,
+            this.btnphanquyen});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 54;
+            this.ribbon.MaxItemId = 55;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.page_hethong,
@@ -212,7 +214,6 @@
             this.btnnhaphang.Id = 13;
             this.btnnhaphang.Name = "btnnhaphang";
             this.btnnhaphang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-           
             // 
             // btndoigia
             // 
@@ -229,7 +230,6 @@
             this.btnbanhang.Id = 15;
             this.btnbanhang.Name = "btnbanhang";
             this.btnbanhang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-          
             // 
             // btnchitietbanhang
             // 
@@ -313,7 +313,6 @@
             this.btncauhinh.Id = 26;
             this.btncauhinh.Name = "btncauhinh";
             this.btncauhinh.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btncauhinh.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btncauhinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btncauhinh_ItemClick);
             // 
             // lblthongtincty
@@ -436,6 +435,7 @@
             this.group_dulieu.ItemLinks.Add(this.btnphuchoi);
             this.group_dulieu.ItemLinks.Add(this.btnketnoi);
             this.group_dulieu.ItemLinks.Add(this.btncauhinh);
+            this.group_dulieu.ItemLinks.Add(this.btnphanquyen);
             this.group_dulieu.Name = "group_dulieu";
             this.group_dulieu.Text = "Dữ liệu";
             // 
@@ -581,6 +581,15 @@
             this.tabMain.Text = "tabControl1";
             this.tabMain.TabItemClose += new DevComponents.DotNetBar.TabStrip.UserActionEventHandler(this.tabMain_TabItemClose);
             // 
+            // btnphanquyen
+            // 
+            this.btnphanquyen.Caption = "Phân quyền";
+            this.btnphanquyen.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Calendar_Filled_501;
+            this.btnphanquyen.Id = 54;
+            this.btnphanquyen.Name = "btnphanquyen";
+            this.btnphanquyen.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnphanquyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnphanquyen_ItemClick);
+            // 
             // Frm_Main
             // 
             this.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -667,6 +676,7 @@
         private DevExpress.XtraBars.BarButtonItem btnquanlyravao;
         private DevExpress.XtraBars.BarButtonItem btnGhiDanhCty;
         private DevComponents.DotNetBar.TabControl tabMain;
+        private DevExpress.XtraBars.BarButtonItem btnphanquyen;
     }
 }
 

@@ -64,11 +64,12 @@
             this.btncalamviec = new DevExpress.XtraBars.BarButtonItem();
             this.btnquanlyravao = new DevExpress.XtraBars.BarButtonItem();
             this.btnGhiDanhCty = new DevExpress.XtraBars.BarButtonItem();
+            this.btnphanquyen = new DevExpress.XtraBars.BarButtonItem();
             this.page_hethong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.group_thoat = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.group_dulieu = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.page_danhmuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.group_danhmuc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.page_thongke = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.page_trogiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.group_trogiup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -84,7 +85,7 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tabMain = new DevComponents.DotNetBar.TabControl();
-            this.btnphanquyen = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
@@ -137,6 +138,7 @@
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.page_hethong,
             this.page_danhmuc,
+            this.ribbonPage1,
             this.page_thongke,
             this.page_trogiup});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -146,6 +148,7 @@
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbon.Size = new System.Drawing.Size(1207, 145);
             this.ribbon.StatusBar = this.ribbonStatusBar1;
+            this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // barCheckItem1
             // 
@@ -413,6 +416,15 @@
             this.btnGhiDanhCty.Name = "btnGhiDanhCty";
             this.btnGhiDanhCty.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
+            // btnphanquyen
+            // 
+            this.btnphanquyen.Caption = "Phân quyền";
+            this.btnphanquyen.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Calendar_Filled_501;
+            this.btnphanquyen.Id = 54;
+            this.btnphanquyen.Name = "btnphanquyen";
+            this.btnphanquyen.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnphanquyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnphanquyen_ItemClick);
+            // 
             // page_hethong
             // 
             this.page_hethong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -442,17 +454,17 @@
             // page_danhmuc
             // 
             this.page_danhmuc.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
+            this.group_danhmuc});
             this.page_danhmuc.Name = "page_danhmuc";
             this.page_danhmuc.Text = "Danh mục";
             // 
-            // ribbonPageGroup3
+            // group_danhmuc
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnnhanvien);
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnloaikhach);
-            this.ribbonPageGroup3.ItemLinks.Add(this.btncalamviec);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Danh mục";
+            this.group_danhmuc.ItemLinks.Add(this.btnnhanvien);
+            this.group_danhmuc.ItemLinks.Add(this.btnloaikhach);
+            this.group_danhmuc.ItemLinks.Add(this.btncalamviec);
+            this.group_danhmuc.Name = "group_danhmuc";
+            this.group_danhmuc.Text = "Danh mục";
             // 
             // page_thongke
             // 
@@ -581,14 +593,10 @@
             this.tabMain.Text = "tabControl1";
             this.tabMain.TabItemClose += new DevComponents.DotNetBar.TabStrip.UserActionEventHandler(this.tabMain_TabItemClose);
             // 
-            // btnphanquyen
+            // ribbonPage1
             // 
-            this.btnphanquyen.Caption = "Phân quyền";
-            this.btnphanquyen.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Calendar_Filled_501;
-            this.btnphanquyen.Id = 54;
-            this.btnphanquyen.Name = "btnphanquyen";
-            this.btnphanquyen.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnphanquyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnphanquyen_ItemClick);
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "Tạc vụ";
             // 
             // Frm_Main
             // 
@@ -627,7 +635,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup group_thoat;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup group_dulieu;
         private DevExpress.XtraBars.Ribbon.RibbonPage page_danhmuc;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup group_danhmuc;
         private DevExpress.XtraBars.Ribbon.RibbonPage page_thongke;
         private DevExpress.XtraBars.Ribbon.RibbonPage page_trogiup;
         private DevExpress.XtraBars.BarCheckItem barCheckItem1;
@@ -677,6 +685,7 @@
         private DevExpress.XtraBars.BarButtonItem btnGhiDanhCty;
         private DevComponents.DotNetBar.TabControl tabMain;
         private DevExpress.XtraBars.BarButtonItem btnphanquyen;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
     }
 }
 

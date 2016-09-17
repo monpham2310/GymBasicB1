@@ -46,6 +46,7 @@ namespace VnApptech_GYM_Soft
                     cls_Main.maCaLamViec = Convert.ToInt32(cbocalamviec.SelectedValue.ToString());
                     cls_Main.tenCaLamViec = cbocalamviec.Text;
                     cls_Main.maNhanVien = dt.Rows[0]["MaNhanVien"].ToString();
+                    
                     if (cls_Main.maTaiKhoan != "1" )
                     {
                         if (cls_Main.dangxuat == false)
@@ -66,7 +67,6 @@ namespace VnApptech_GYM_Soft
             }
             catch (Exception ex)
             {
-
                 err += ex.Message;
             }
             return false;
@@ -90,7 +90,8 @@ namespace VnApptech_GYM_Soft
         private void loadcalamviec()
         {
             DataTable dt = new DataTable();
-            
+            if (dt.Rows.Count > 0)
+            {
                 dt = bd.Laycalamviec(ref err);
                 cbocalamviec.DataSource = dt;
                 cbocalamviec.ValueMember = "MaCaLamViec";
@@ -99,7 +100,7 @@ namespace VnApptech_GYM_Soft
                 cbocalamviec.AutoCompleteSource = AutoCompleteSource.ListItems;
                 cbocalamviec.SelectedIndex = -1;
                 cbocalamviec.Text = "--Chọn ca làm việc--";
-            
+            }
         }
 
         private void btndangnhap_Click(object sender, EventArgs e)

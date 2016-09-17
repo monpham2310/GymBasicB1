@@ -19,26 +19,34 @@ namespace VnApptech_GYM_Soft
         public static string title = "";
         public static int numberCard = 0;//số ký tự của mã vạch và rfid
         public static int deviceType = 0;//0:mã vạch và mã rfid 125;1:vân tay; 2: mã rfid 13.5
-        //-------------------------------------------------------------------------------
-        public static string chuoimahoaDemo = "";//chuỗi ký tự lưu khi chưa có key
+        //-----------------------------------------------------------------
+        //chuỗi ký tự lưu khi chưa có key
+        public static string chuoimahoaDemo = "";
         public static int songayconlai = 0;
-        
-        public static bool dangxuat = false;//lưu trạng thái đăng xuất của chương trình; nếu là false chưa đăng xuất
+        //lưu trạng thái đăng xuất của chương trình; nếu là false chưa đăng xuất
+        public static bool dangxuat = false;
         public static bool thoat = false;//lưu trạng thái thoát của chương trình
         public static string err = "";//lưu thông tin lỗi của tất cả các lỗi.
+
         //Thiết bị
-        public static string pathconnect = Application.StartupPath + @"\Connect.ini";//lưu đường dẫn chuỗi kết nối.
+
+        //lưu đường dẫn chuỗi kết nối.
+        public static string pathconnect = Application.StartupPath + @"\Connect.ini";
         //lưu đường dẫn file cấu hình.
         public static string pathconfig = Application.StartupPath + @"\Config.ini";
-        
+        public static string pathmenuhethong = Application.StartupPath + @"\MenuHeThong.ini";
+        public static string pathmenudanhmuc = Application.StartupPath + @"\MenuDanhMuc.ini";
+        public static string pathmenutacvu = Application.StartupPath + @"\MenuTacVu.ini";
+        public static string pathmenuthongke = Application.StartupPath + @"\MenuThongKe.ini";
+        public static string pathmenutrogiup = Application.StartupPath + @"\MenuTroGiup.ini";
         //form
         public static Frm_Main Frm_Main;
         public static Frm_Login frmLogin;
         //thông tin đăng nhập
         public static int maCaLamViec;
         public static string tenCaLamViec;
-        //Lưu thông tin kết nối
         public static string maNhanVien, tenNhanVien, tenDangNhap, maTaiKhoan;
+       
         #region Các biến để lưu giá trị của chuỗi kết nối
         public static string serverName = "";
         public static string database = "";

@@ -161,6 +161,9 @@
     <Compile Include="DanhMuc\Frm_TaiKhoan_Sua.designer.cs">
       <DependentUpon>Frm_TaiKhoan_Sua.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Open_Close_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HeThong\BLL_HeThong.cs" />
     <Compile Include="cls_Main.cs" />
     <Compile Include="HeThong\BLL_HeThong_Huy.cs" />

@@ -10,8 +10,9 @@ using DevExpress.Skins;
 using DevExpress.XtraBars;
 using DevComponents.DotNetBar;
 using VnApptech_GYM_Soft.HeThong;
-
+using System.Collections;
 using VnApptech_GYM_Soft.DanhMuc;
+using System.IO;
 
 
 namespace VnApptech_GYM_Soft
@@ -25,7 +26,6 @@ namespace VnApptech_GYM_Soft
             cls_Main.Frm_Main = this;
             this.Text = cls_Main.title;
             this.ribbon.Toolbar.ItemLinks.Add(this.barSubItem1);
-
             this.barSubItem1.Popup += new System.EventHandler(this.barSubItem1_Popup);                    
         }
         #region khai báo biến 
@@ -121,11 +121,7 @@ namespace VnApptech_GYM_Soft
             Application.Exit();
         }
         #endregion
-        private void phanquyen()
-        {
-            
-           
-        }
+
         private void Frm_Main_Load(object sender, EventArgs e)
         {
             #region load theme
@@ -141,36 +137,53 @@ namespace VnApptech_GYM_Soft
             notifyIcon();
 
             #region mở from đăng nhập
-
+            phanquyentheogoi();
+            //đóng mở menu khi chương trình không muốn cho sử dụng
+            //bằng cách sửa trong file ini
+            //MenuDanhMuc.ini
+            //MenuHeThong.ini
+            //MenuTacVu.ini
+            //MenuThongKe.ini
+            //MenuTroGiup.ini
             Frm_Login _login = new Frm_Login();
             _login.ShowDialog();
-            lblthongtindangnhap.Caption = "Hệ thông đang được đăng nhập bởi: "+cls_Main.tenNhanVien;
-            if (cls_Main.songayconlai >= 0)
+            if (!string.IsNullOrEmpty(cls_Main.tenNhanVien))
             {
-                lblsongaysudung.Caption = "Số ngày sử dụng còn lại là: " + cls_Main.songayconlai + " ngày";
-                lblsongaysudung.Appearance.ForeColor = Color.Red;
-            }
-            //Phân quyền
-            phanquyen();
-            #endregion 
+                lblthongtindangnhap.Caption = "Hệ thông đang được đăng nhập bởi: " + cls_Main.tenNhanVien;
+                if (cls_Main.songayconlai >= 0)
+                {
+                    lblsongaysudung.Caption = "Số ngày sử dụng còn lại là: " + cls_Main.songayconlai + " ngày";
+                    lblsongaysudung.Appearance.ForeColor = Color.Red;
+                }
+                //Phân quyền
 
-            #region load form thông tin
-         
-            sTieuDe = "Thông tin";
-            if (!checkOpenTabs(sTieuDe))
-            {
-                TabItem t = tabMain.CreateTab(sTieuDe);
-                t.Name = "frmthongtin";
-                Frm_ThongTin dt = new Frm_ThongTin();
-                dt.deDongTab = new Frm_ThongTin._deDongTab(vDOngTab);
-                dt.frm = this;
-                dt.TopLevel = false;
-                dt.Dock = DockStyle.Fill;
-                t.AttachedControl.Controls.Add(dt);
-                dt.Show();
-                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
-            }
+                phanquyentheogoi();
             #endregion
+
+                #region load form thông tin
+
+                sTieuDe = "Thông tin";
+                if (!checkOpenTabs(sTieuDe))
+                {
+                    TabItem t = tabMain.CreateTab(sTieuDe);
+                    t.Name = "frmthongtin";
+                    Frm_ThongTin dt = new Frm_ThongTin();
+                    dt.deDongTab = new Frm_ThongTin._deDongTab(vDOngTab);
+                    dt.frm = this;
+                    dt.TopLevel = false;
+                    dt.Dock = DockStyle.Fill;
+                    t.AttachedControl.Controls.Add(dt);
+                    dt.Show();
+                    tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+                }
+                #endregion
+            }
+            else
+            {
+                _login.ShowDialog();
+            }
+
+
 
         }
         private bool checkOpenTabs(string name)
@@ -223,37 +236,46 @@ namespace VnApptech_GYM_Soft
         {
             lblthongtindangnhap.Caption = "";
             cls_Main.dangxuat = true;
+            cls_Main.tenCaLamViec = "";
+            cls_Main.tenDangNhap = "";
+            cls_Main.tenNhanVien = "";
+            cls_Main.songayconlai = 0;
             Frm_Login _frmlogin = new Frm_Login();
             _frmlogin.ShowDialog();
-            lblthongtindangnhap.Caption = "Hệ thông đang được đăng nhập bởi: " + cls_Main.tenNhanVien;
-            if (cls_Main.songayconlai >= 0)
+            if (!string.IsNullOrEmpty(cls_Main.tenNhanVien))
             {
-                lblsongaysudung.Caption = "Số ngày sử dụng còn lại là: " + cls_Main.songayconlai + " ngày";
-                lblsongaysudung.Appearance.ForeColor = Color.Red;
+                lblthongtindangnhap.Caption = "Hệ thông đang được đăng nhập bởi: " + cls_Main.tenNhanVien;
+                if (cls_Main.songayconlai >= 0)
+                {
+                    lblsongaysudung.Caption = "Số ngày sử dụng còn lại là: " + cls_Main.songayconlai + " ngày";
+                    lblsongaysudung.Appearance.ForeColor = Color.Red;
+                }         
+
+                #region load form thông tin
+
+                sTieuDe = "Thông tin";
+                if (!checkOpenTabs(sTieuDe))
+                {
+                    TabItem t = tabMain.CreateTab(sTieuDe);
+                    t.Name = "frmthongtin";
+                    Frm_ThongTin dt = new Frm_ThongTin();
+                    dt.deDongTab = new Frm_ThongTin._deDongTab(vDOngTab);
+                    dt.frm = this;
+                    dt.TopLevel = false;
+                    dt.Dock = DockStyle.Fill;
+                    t.AttachedControl.Controls.Add(dt);
+                    dt.Show();
+                    tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1; 
+                    cls_Main.dangxuat = false;
+                }
+                #endregion
             }
-            //Phân quyền
-           
-            phanquyen();
-
-            #region load form thông tin
-
-            sTieuDe = "Thông tin";
-            if (!checkOpenTabs(sTieuDe))
+            else
             {
-                TabItem t = tabMain.CreateTab(sTieuDe);
-                t.Name = "frmthongtin";
-                Frm_ThongTin dt = new Frm_ThongTin();
-                dt.deDongTab = new Frm_ThongTin._deDongTab(vDOngTab);
-                dt.frm = this;
-                dt.TopLevel = false;
-                dt.Dock = DockStyle.Fill;
-                t.AttachedControl.Controls.Add(dt);
-                dt.Show();
-                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+                _frmlogin.ShowDialog();
             }
-            #endregion
 
-            cls_Main.dangxuat = false;
+          
         }
 
         private void btnphuchoi_ItemClick(object sender, ItemClickEventArgs e)
@@ -440,6 +462,11 @@ namespace VnApptech_GYM_Soft
                 dt.Show();
                 tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
             }
+        }
+
+        private void ribbon_Click(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -18,7 +18,30 @@ namespace VnApptech_GYM_Soft
         //---------------07-09-2016------------------
         public static string title = "";
         public static int numberCard = 0;//số ký tự của mã vạch và rfid
-        public static int deviceType = 0;//0:mã vạch và mã rfid 125;1:vân tay; 2: mã rfid 13.5
+       // public static int  = 0;//0:mã vạch và mã rfid 125;1:vân tay; 2: mã rfid 13.5
+       //danh sách hằng số cho phép lựa chọn thiết bị
+        public static deviceType GetDeciceType(int type)
+        {
+            switch (type)
+            {
+                case 0:
+                    return deviceType.MaVach;
+                case 1:
+                    return deviceType.VanTay;
+                case 2:
+                    return deviceType.RFID;
+                default:
+                    return deviceType.MaVach;
+            }
+           
+
+        }
+        public static enum deviceType
+        {
+            MaVach=0,
+            VanTay=1,
+            RFID=2,
+        }
         //-----------------------------------------------------------------
         //chuỗi ký tự lưu khi chưa có key
         public static string chuoimahoaDemo = "";

@@ -135,7 +135,7 @@ namespace VnApptech_GYM_Soft
             }
             #endregion
             notifyIcon();
-
+           
             #region mở from đăng nhập
             phanquyentheogoi();
             //đóng mở menu khi chương trình không muốn cho sử dụng

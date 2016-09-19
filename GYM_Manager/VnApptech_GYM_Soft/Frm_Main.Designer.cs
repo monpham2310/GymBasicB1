@@ -70,6 +70,7 @@
             this.group_dulieu = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.page_danhmuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.group_danhmuc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.page_thongke = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.page_trogiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.group_trogiup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -85,7 +86,7 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tabMain = new DevComponents.DotNetBar.TabControl();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.btnMemberPackage = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
@@ -131,9 +132,10 @@
             this.btncalamviec,
             this.btnquanlyravao,
             this.btnGhiDanhCty,
-            this.btnphanquyen});
+            this.btnphanquyen,
+            this.btnMemberPackage});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 55;
+            this.ribbon.MaxItemId = 56;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.page_hethong,
@@ -463,8 +465,14 @@
             this.group_danhmuc.ItemLinks.Add(this.btnnhanvien);
             this.group_danhmuc.ItemLinks.Add(this.btnloaikhach);
             this.group_danhmuc.ItemLinks.Add(this.btncalamviec);
+            this.group_danhmuc.ItemLinks.Add(this.btnMemberPackage);
             this.group_danhmuc.Name = "group_danhmuc";
             this.group_danhmuc.Text = "Danh mục";
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "Tạc vụ";
             // 
             // page_thongke
             // 
@@ -593,10 +601,13 @@
             this.tabMain.Text = "tabControl1";
             this.tabMain.TabItemClose += new DevComponents.DotNetBar.TabStrip.UserActionEventHandler(this.tabMain_TabItemClose);
             // 
-            // ribbonPage1
+            // btnMemberPackage
             // 
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Tạc vụ";
+            this.btnMemberPackage.Caption = "Gói tập";
+            this.btnMemberPackage.Id = 55;
+            this.btnMemberPackage.LargeGlyph = global::VnApptech_GYM_Soft.Properties.Resources.Product_48;
+            this.btnMemberPackage.Name = "btnMemberPackage";
+            this.btnMemberPackage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMemberPackage_ItemClick);
             // 
             // Frm_Main
             // 
@@ -686,6 +697,7 @@
         private DevComponents.DotNetBar.TabControl tabMain;
         private DevExpress.XtraBars.BarButtonItem btnphanquyen;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.BarButtonItem btnMemberPackage;
     }
 }
 

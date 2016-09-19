@@ -469,15 +469,23 @@ namespace VnApptech_GYM_Soft
 
         }
 
-
-       
-       
-
-      
-
-       
-
-        
+        private void btnMemberPackage_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sTieuDe = "Gói tập";
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabMain.CreateTab(sTieuDe);
+                t.Name = "H_frm_MemberPackage_Main";
+                H_frm_MemberPackage_Main dt = new H_frm_MemberPackage_Main();
+                dt.deDongTab = new H_frm_MemberPackage_Main._deDongTab(vDOngTab);
+                dt.frm = this;
+                dt.TopLevel = false;
+                dt.Dock = DockStyle.Fill;
+                t.AttachedControl.Controls.Add(dt);
+                dt.Show();
+                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+            }
+        }       
 
     }
 }

@@ -161,6 +161,18 @@
     <Compile Include="DanhMuc\Frm_TaiKhoan_Sua.designer.cs">
       <DependentUpon>Frm_TaiKhoan_Sua.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\H_frm_MemberPackage_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\H_frm_MemberPackage_Main.Designer.cs">
+      <DependentUpon>H_frm_MemberPackage_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\H_MemberPackage_Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\H_MemberPackage_Modify.Designer.cs">
+      <DependentUpon>H_MemberPackage_Modify.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Open_Close_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +302,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\Frm_TaiKhoan_Sua.resx">
       <DependentUpon>Frm_TaiKhoan_Sua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\H_frm_MemberPackage_Main.resx">
+      <DependentUpon>H_frm_MemberPackage_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\H_MemberPackage_Modify.resx">
+      <DependentUpon>H_MemberPackage_Modify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeThong\frm_capnhatbanquyen.resx">
       <DependentUpon>frm_capnhatbanquyen.cs</DependentUpon>

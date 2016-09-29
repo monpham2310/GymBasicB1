@@ -36,7 +36,7 @@ namespace VnApptech_GYM_Soft
            
 
         }
-        public static enum deviceType
+        public enum deviceType
         {
             MaVach=0,
             VanTay=1,
@@ -113,7 +113,8 @@ namespace VnApptech_GYM_Soft
                                 title = line.Substring(line.IndexOf('=') + 1);
                                 break;
                             case "devicetype":
-                                deviceType = Convert.ToInt32(line.Substring(line.IndexOf('=') + 1));
+                                //bị lỗi
+                                //deviceType = Convert.ToInt32(line.Substring(line.IndexOf('=') + 1));
                                 break;
                         }
                     }

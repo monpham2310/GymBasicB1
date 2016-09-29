@@ -36,9 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=8.0.0.0, Culture=neutral, PublicKeyToken=5fd520d36328f741, processorArchitecture=MSIL">
-      <HintPath>DLL\DevComponents.DotNetBar2.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\Debug\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
@@ -89,7 +88,7 @@
     </Reference>
     <Reference Include="MyLibrarySoft, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>DLL\MyLibrarySoft.dll</HintPath>
+      <HintPath>bin\Debug\MyLibrarySoft.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -160,6 +159,18 @@
     </Compile>
     <Compile Include="DanhMuc\Frm_TaiKhoan_Sua.designer.cs">
       <DependentUpon>Frm_TaiKhoan_Sua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\H_frm_MemberPackage_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\H_frm_MemberPackage_Main.Designer.cs">
+      <DependentUpon>H_frm_MemberPackage_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\H_MemberPackage_Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\H_MemberPackage_Modify.Designer.cs">
+      <DependentUpon>H_MemberPackage_Modify.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Open_Close_Menu.cs">
       <SubType>Form</SubType>
@@ -242,11 +253,35 @@
     <Compile Include="TacVu\frm_CheckIn.Designer.cs">
       <DependentUpon>frm_CheckIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="TacVu\Frm_ChiTietHoiVien_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TacVu\Frm_ChiTietHoiVien_Main.Designer.cs">
+      <DependentUpon>Frm_ChiTietHoiVien_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacVu\Frm_ChiTietHoiVien_Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TacVu\Frm_ChiTietHoiVien_Modify.Designer.cs">
+      <DependentUpon>Frm_ChiTietHoiVien_Modify.cs</DependentUpon>
+    </Compile>
     <Compile Include="TacVu\frm_GhiDanh.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TacVu\frm_GhiDanh.Designer.cs">
       <DependentUpon>frm_GhiDanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacVu\Frm_HoiVien_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TacVu\Frm_HoiVien_Main.Designer.cs">
+      <DependentUpon>Frm_HoiVien_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacVu\Frm_HoiVien_Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TacVu\Frm_HoiVien_Modify.Designer.cs">
+      <DependentUpon>Frm_HoiVien_Modify.cs</DependentUpon>
     </Compile>
     <Compile Include="ThongKe\BLL_ThongKe.cs" />
     <Compile Include="ThongKe\Frm_BangKeLichSuDangKyTheoThoiGian.cs">
@@ -291,6 +326,12 @@
     <EmbeddedResource Include="DanhMuc\Frm_TaiKhoan_Sua.resx">
       <DependentUpon>Frm_TaiKhoan_Sua.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\H_frm_MemberPackage_Main.resx">
+      <DependentUpon>H_frm_MemberPackage_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\H_MemberPackage_Modify.resx">
+      <DependentUpon>H_MemberPackage_Modify.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HeThong\frm_capnhatbanquyen.resx">
       <DependentUpon>frm_capnhatbanquyen.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,8 +371,20 @@
     <EmbeddedResource Include="TacVu\frm_CheckIn.resx">
       <DependentUpon>frm_CheckIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TacVu\Frm_ChiTietHoiVien_Main.resx">
+      <DependentUpon>Frm_ChiTietHoiVien_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacVu\Frm_ChiTietHoiVien_Modify.resx">
+      <DependentUpon>Frm_ChiTietHoiVien_Modify.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TacVu\frm_GhiDanh.resx">
       <DependentUpon>frm_GhiDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacVu\Frm_HoiVien_Main.resx">
+      <DependentUpon>Frm_HoiVien_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacVu\Frm_HoiVien_Modify.resx">
+      <DependentUpon>Frm_HoiVien_Modify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKe\Frm_BangKeLichSuDangKyTheoThoiGian.resx">
       <DependentUpon>Frm_BangKeLichSuDangKyTheoThoiGian.cs</DependentUpon>

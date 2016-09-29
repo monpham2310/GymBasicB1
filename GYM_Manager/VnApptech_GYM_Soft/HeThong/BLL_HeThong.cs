@@ -26,7 +26,7 @@ namespace VnApptech_GYM_Soft.HeThong
         }
         public DataTable laytaikhoan(ref string err)
         {
-            return data.GetDataTable("Select distinct TenDangNhap from NhanVien", CommandType.Text, ref err, null);
+            return data.GetDataTable("Select distinct TenDangNhap from GYM_NhanVien", CommandType.Text, ref err, null);
         }
         public DataTable Laycalamviec(ref string err)
         {

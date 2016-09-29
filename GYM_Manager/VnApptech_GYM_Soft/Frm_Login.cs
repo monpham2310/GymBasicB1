@@ -90,9 +90,9 @@ namespace VnApptech_GYM_Soft
         private void loadcalamviec()
         {
             DataTable dt = new DataTable();
+            dt = bd.Laycalamviec(ref err);
             if (dt.Rows.Count > 0)
-            {
-                dt = bd.Laycalamviec(ref err);
+            {                
                 cbocalamviec.DataSource = dt;
                 cbocalamviec.ValueMember = "MaCaLamViec";
                 cbocalamviec.DisplayMember = "TenCa";

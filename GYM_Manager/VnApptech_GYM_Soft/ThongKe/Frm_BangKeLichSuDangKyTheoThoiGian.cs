@@ -15,5 +15,13 @@ namespace VnApptech_GYM_Soft.ThongKe
         {
             InitializeComponent();
         }
+        public Frm_Main frm;
+        public delegate void _deDongTab();
+        public _deDongTab deDongTab;
+
+        private void Frm_BangKeLichSuDangKyTheoThoiGian_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

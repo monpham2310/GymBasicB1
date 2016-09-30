@@ -110,12 +110,12 @@ namespace VnApptech_GYM_Soft.DanhMuc
             if (ckbType.Checked)
             {
                 lbTurnNumber.Visible = true;
-                ckbType.Visible = true;
+                txtTurnNumber.Visible = true;
             }
             else
             {
                 lbTurnNumber.Visible = false;
-                ckbType.Visible = false;
+                txtTurnNumber.Visible = false;
             }
         }
 

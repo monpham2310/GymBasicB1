@@ -137,5 +137,7 @@ namespace VnApptech_GYM_Soft.DanhMuc
                 MessageBox.Show("Vui lòng chọn gói tập!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+      
     }
 }

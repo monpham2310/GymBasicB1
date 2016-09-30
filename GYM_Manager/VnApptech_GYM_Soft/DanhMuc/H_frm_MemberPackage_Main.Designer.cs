@@ -362,7 +362,7 @@
             this.colstt.OptionsColumn.AllowEdit = false;
             this.colstt.Visible = true;
             this.colstt.VisibleIndex = 0;
-            this.colstt.Width = 76;
+            this.colstt.Width = 42;
             // 
             // colmacalamviec
             // 
@@ -394,7 +394,7 @@
             this.colgiobatdau.OptionsColumn.AllowEdit = false;
             this.colgiobatdau.Visible = true;
             this.colgiobatdau.VisibleIndex = 1;
-            this.colgiobatdau.Width = 120;
+            this.colgiobatdau.Width = 124;
             // 
             // colgioketthuc
             // 
@@ -412,7 +412,7 @@
             this.colgioketthuc.OptionsColumn.AllowEdit = false;
             this.colgioketthuc.Visible = true;
             this.colgioketthuc.VisibleIndex = 2;
-            this.colgioketthuc.Width = 97;
+            this.colgioketthuc.Width = 100;
             // 
             // colghichu
             // 
@@ -428,13 +428,14 @@
             this.colghichu.OptionsColumn.AllowEdit = false;
             this.colghichu.Visible = true;
             this.colghichu.VisibleIndex = 3;
-            this.colghichu.Width = 84;
+            this.colghichu.Width = 87;
             // 
             // coltinhtrang
             // 
             this.coltinhtrang.Caption = "Tình trạng";
             this.coltinhtrang.FieldName = "TinhTrang";
             this.coltinhtrang.Name = "coltinhtrang";
+            this.coltinhtrang.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn1
             // 
@@ -445,9 +446,10 @@
             this.gridColumn1.Caption = "Phòng tập";
             this.gridColumn1.FieldName = "TenPhongTap";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 4;
-            this.gridColumn1.Width = 95;
+            this.gridColumn1.Width = 98;
             // 
             // gridColumn2
             // 
@@ -458,9 +460,10 @@
             this.gridColumn2.Caption = "Số ngày";
             this.gridColumn2.FieldName = "SoNgay";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 5;
-            this.gridColumn2.Width = 77;
+            this.gridColumn2.Width = 79;
             // 
             // gridColumn3
             // 
@@ -471,9 +474,10 @@
             this.gridColumn3.Caption = "Số lần tập";
             this.gridColumn3.FieldName = "SoLanTap";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 6;
-            this.gridColumn3.Width = 77;
+            this.gridColumn3.Width = 79;
             // 
             // gridColumn4
             // 
@@ -482,11 +486,14 @@
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "Giờ BD";
+            this.gridColumn4.DisplayFormat.FormatString = "HH:mm:ss";
+            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumn4.FieldName = "GioBD";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 7;
-            this.gridColumn4.Width = 77;
+            this.gridColumn4.Width = 79;
             // 
             // gridColumn5
             // 
@@ -495,11 +502,14 @@
             this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn5.Caption = "Giờ KT";
+            this.gridColumn5.DisplayFormat.FormatString = "HH:mm:ss";
+            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumn5.FieldName = "GioKT";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 8;
-            this.gridColumn5.Width = 77;
+            this.gridColumn5.Width = 79;
             // 
             // gridColumn6
             // 
@@ -508,11 +518,14 @@
             this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn6.Caption = "Đơn Giá";
+            this.gridColumn6.DisplayFormat.FormatString = "#,###0";
+            this.gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn6.FieldName = "DonGia";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 9;
-            this.gridColumn6.Width = 77;
+            this.gridColumn6.Width = 79;
             // 
             // gridColumn7
             // 
@@ -523,9 +536,10 @@
             this.gridColumn7.Caption = "Hình thức tập";
             this.gridColumn7.FieldName = "HinhThucTap";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 10;
-            this.gridColumn7.Width = 95;
+            this.gridColumn7.Width = 106;
             // 
             // H_frm_MemberPackage_Main
             // 

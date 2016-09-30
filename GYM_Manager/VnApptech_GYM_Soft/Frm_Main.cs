@@ -13,6 +13,8 @@ using VnApptech_GYM_Soft.HeThong;
 using System.Collections;
 using VnApptech_GYM_Soft.DanhMuc;
 using System.IO;
+using VnApptech_GYM_Soft.TacVu;
+using VnApptech_GYM_Soft.ThongKe;
 
 
 namespace VnApptech_GYM_Soft
@@ -485,7 +487,111 @@ namespace VnApptech_GYM_Soft
                 dt.Show();
                 tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
             }
-        }       
+        }
+
+        private void btnchitiethoivien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sTieuDe = "Chi tiết hội viên";
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabMain.CreateTab(sTieuDe);
+                t.Name = "Frm_ChiTietHoiVien_Main";
+                Frm_ChiTietHoiVien_Main dt = new Frm_ChiTietHoiVien_Main();
+                dt.deDongTab = new Frm_ChiTietHoiVien_Main._deDongTab(vDOngTab);
+                dt.frm = this;
+                dt.TopLevel = false;
+                dt.Dock = DockStyle.Fill;
+                t.AttachedControl.Controls.Add(dt);
+                dt.Show();
+                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+            }
+        }
+
+        private void btncheckin_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frm_CheckIn dt = new frm_CheckIn();
+            dt.ShowDialog();
+        }
+
+        private void btnaddcard_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frm_GhiDanh _ghidanh = new frm_GhiDanh();
+            _ghidanh.ShowDialog();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sTieuDe = "Hội viên";
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabMain.CreateTab(sTieuDe);
+                t.Name = "Frm_HoiVien_Main";
+                Frm_HoiVien_Main dt = new Frm_HoiVien_Main();
+                dt.deDongTab = new Frm_HoiVien_Main._deDongTab(vDOngTab);
+                dt.frm = this;
+                dt.TopLevel = false;
+                dt.Dock = DockStyle.Fill;
+                t.AttachedControl.Controls.Add(dt);
+                dt.Show();
+                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+            }
+        }
+
+        private void btndoanhthugoitap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sTieuDe = "Doanh thu theo gói tập";
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabMain.CreateTab(sTieuDe);
+                t.Name = "Frm_DoanhThuTheoGoiTap";
+                Frm_DoanhThuTheoGoiTap dt = new Frm_DoanhThuTheoGoiTap();
+                dt.deDongTab = new Frm_DoanhThuTheoGoiTap._deDongTab(vDOngTab);
+                dt.frm = this;
+                dt.TopLevel = false;
+                dt.Dock = DockStyle.Fill;
+                t.AttachedControl.Controls.Add(dt);
+                dt.Show();
+                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+            }
+        }
+
+        private void btnlichsudangky_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sTieuDe = "Lịch sử đăng ký gói tập";
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabMain.CreateTab(sTieuDe);
+                t.Name = "Frm_BangKeLichSuDangKyTheoThoiGian";
+                Frm_BangKeLichSuDangKyTheoThoiGian dt = new Frm_BangKeLichSuDangKyTheoThoiGian();
+                dt.deDongTab = new Frm_BangKeLichSuDangKyTheoThoiGian._deDongTab(vDOngTab);
+                dt.frm = this;
+                dt.TopLevel = false;
+                dt.Dock = DockStyle.Fill;
+                t.AttachedControl.Controls.Add(dt);
+                dt.Show();
+                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+            }
+        }
+
+        private void btnlichsuravao_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sTieuDe = "Lịch sử ra vào";
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabMain.CreateTab(sTieuDe);
+                t.Name = "Frm_BangKeLichSuRaVaoTheoThoiGian";
+                Frm_BangKeLichSuRaVaoTheoThoiGian dt = new Frm_BangKeLichSuRaVaoTheoThoiGian();
+                dt.deDongTab = new Frm_BangKeLichSuRaVaoTheoThoiGian._deDongTab(vDOngTab);
+                dt.frm = this;
+                dt.TopLevel = false;
+                dt.Dock = DockStyle.Fill;
+                t.AttachedControl.Controls.Add(dt);
+                dt.Show();
+                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+            }
+        }
+
+          
 
     }
 }

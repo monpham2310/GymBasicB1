@@ -12,7 +12,7 @@ namespace VnApptech_GYM_Soft.DanhMuc
 {
     public partial class H_frm_MemberPackage_Main : DevExpress.XtraEditors.XtraForm
     {
-        private BLL_DanhMuc bll;
+        private IBLL_DanhMuc bll;
         private string err = "";
         public Frm_Main frm;
         public delegate void _deDongTab();

@@ -108,6 +108,7 @@
             this.btnrefresh.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Refresh_32;
             this.btnrefresh.Id = 0;
             this.btnrefresh.Name = "btnrefresh";
+            this.btnrefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnrefresh_ItemClick);
             // 
             // btnadd
             // 

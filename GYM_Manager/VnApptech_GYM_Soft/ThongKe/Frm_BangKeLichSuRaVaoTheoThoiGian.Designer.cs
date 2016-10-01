@@ -53,8 +53,9 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dtpdenngay = new System.Windows.Forms.DateTimePicker();
-            this.dtptungay = new System.Windows.Forms.DateTimePicker();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.date_To = new System.Windows.Forms.DateTimePicker();
+            this.date_From = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -151,6 +152,7 @@
             this.btnthongke.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Updates_32;
             this.btnthongke.Id = 0;
             this.btnthongke.Name = "btnthongke";
+            this.btnthongke.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnthongke_ItemClick);
             // 
             // btnxuatexcel
             // 
@@ -158,6 +160,7 @@
             this.btnxuatexcel.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.MS_Excel_Filled_32;
             this.btnxuatexcel.Id = 1;
             this.btnxuatexcel.Name = "btnxuatexcel";
+            this.btnxuatexcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnxuatexcel_ItemClick);
             // 
             // btnthoat
             // 
@@ -165,6 +168,7 @@
             this.btnthoat.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Exit_32;
             this.btnthoat.Id = 2;
             this.btnthoat.Name = "btnthoat";
+            this.btnthoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnthoat_ItemClick);
             // 
             // bar3
             // 
@@ -189,22 +193,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 376);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1070, 21);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 374);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1070, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 336);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 334);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1070, 40);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 336);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 334);
             // 
             // dgvlichsuravao
             // 
@@ -215,7 +219,7 @@
             this.dgvlichsuravao.Margin = new System.Windows.Forms.Padding(4);
             this.dgvlichsuravao.MenuManager = this.barManager1;
             this.dgvlichsuravao.Name = "dgvlichsuravao";
-            this.dgvlichsuravao.Size = new System.Drawing.Size(1070, 336);
+            this.dgvlichsuravao.Size = new System.Drawing.Size(1070, 334);
             this.dgvlichsuravao.TabIndex = 18;
             this.dgvlichsuravao.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMemberPackage});
@@ -228,7 +232,8 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
-            this.gridColumn5});
+            this.gridColumn5,
+            this.gridColumn6});
             this.gvMemberPackage.GridControl = this.dgvlichsuravao;
             this.gvMemberPackage.Name = "gvMemberPackage";
             this.gvMemberPackage.OptionsView.ShowAutoFilterRow = true;
@@ -250,58 +255,101 @@
             this.colstt.OptionsColumn.AllowEdit = false;
             this.colstt.Visible = true;
             this.colstt.VisibleIndex = 0;
-            this.colstt.Width = 59;
+            this.colstt.Width = 62;
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "gridColumn1";
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.Caption = "Mã Thẻ";
+            this.gridColumn1.FieldName = "MaThe";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 100;
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "gridColumn2";
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.Caption = "Tên HV";
+            this.gridColumn2.FieldName = "HoTen";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.Width = 130;
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "gridColumn3";
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.Caption = "Điện Thoại";
+            this.gridColumn3.FieldName = "DienThoai";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.Width = 116;
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "gridColumn4";
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn4.Caption = "Ngày Giờ Vào";
+            this.gridColumn4.FieldName = "NgayVao";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 4;
+            this.gridColumn4.Width = 107;
             // 
             // gridColumn5
             // 
-            this.gridColumn5.Caption = "gridColumn5";
+            this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn5.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn5.Caption = "Ngày Giờ Ra";
+            this.gridColumn5.FieldName = "GioRa";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 5;
+            this.gridColumn5.Width = 119;
             // 
-            // dtpdenngay
+            // gridColumn6
             // 
-            this.dtpdenngay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpdenngay.Location = new System.Drawing.Point(278, 6);
-            this.dtpdenngay.Name = "dtpdenngay";
-            this.dtpdenngay.Size = new System.Drawing.Size(155, 27);
-            this.dtpdenngay.TabIndex = 21;
+            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn6.Caption = "Nhân Viên";
+            this.gridColumn6.FieldName = "NhanVien";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.Width = 189;
             // 
-            // dtptungay
+            // date_To
             // 
-            this.dtptungay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtptungay.Location = new System.Drawing.Point(59, 6);
-            this.dtptungay.Name = "dtptungay";
-            this.dtptungay.Size = new System.Drawing.Size(155, 27);
-            this.dtptungay.TabIndex = 20;
+            this.date_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_To.Location = new System.Drawing.Point(283, 6);
+            this.date_To.Name = "date_To";
+            this.date_To.Size = new System.Drawing.Size(155, 27);
+            this.date_To.TabIndex = 21;
+            // 
+            // date_From
+            // 
+            this.date_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_From.Location = new System.Drawing.Point(65, 6);
+            this.date_From.Name = "date_From";
+            this.date_From.Size = new System.Drawing.Size(155, 27);
+            this.date_From.TabIndex = 20;
             // 
             // Frm_BangKeLichSuRaVaoTheoThoiGian
             // 
@@ -310,8 +358,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 397);
-            this.Controls.Add(this.dtpdenngay);
-            this.Controls.Add(this.dtptungay);
+            this.Controls.Add(this.date_To);
+            this.Controls.Add(this.date_From);
             this.Controls.Add(this.dgvlichsuravao);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -357,7 +405,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private System.Windows.Forms.DateTimePicker dtpdenngay;
-        private System.Windows.Forms.DateTimePicker dtptungay;
+        private System.Windows.Forms.DateTimePicker date_To;
+        private System.Windows.Forms.DateTimePicker date_From;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

@@ -24,6 +24,11 @@ namespace VnApptech_GYM_Soft.TacVu
 
         }
 
+        private void btnrefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
        
     }
 }

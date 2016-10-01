@@ -17,6 +17,8 @@ namespace VnApptech_GYM_Soft.DanhMuc
         DataTable H_GetAllPackageType(ref string err);
         bool H_UpdateMemberPackage(ref string err, int packageId, string packageName, int roomId, int subjectId, int packageType, long dayNumber, long price, DateTime startTime, DateTime endTime, int type, long turnNumber);
         bool H_AddMemberPackage(ref string err, string packageName, int roomId, int subjectId, int packageType, long dayNumber, long price, DateTime startTime, DateTime endTime, int type, long turnNumber);
+        DataTable H_GetPackageTypeList(ref string err);
+        bool H_DeletePackageType(ref string err, int packageTypeId);
     }
 
     public partial class BLL_DanhMuc : IBLL_DanhMuc
@@ -76,5 +78,16 @@ namespace VnApptech_GYM_Soft.DanhMuc
                                         , new SqlParameter("@type", type)
                                         , new SqlParameter("@turnNumber", turnNumber));
         }
+
+        public DataTable H_GetPackageTypeList(ref string err)
+        {
+            return data.GetDataTable("HSP_GetPackageTypeList", CommandType.StoredProcedure, ref err);
+        }
+
+        public bool H_DeletePackageType(ref string err, int packageTypeId)
+        {
+            return data.MyExcuteNonQuery("HSP_DeletePackageType", CommandType.StoredProcedure, ref err, new SqlParameter("@packageTypeId", packageTypeId));
+        }
+
     }
 }

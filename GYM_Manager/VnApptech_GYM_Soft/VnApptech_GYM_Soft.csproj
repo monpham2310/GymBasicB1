@@ -107,6 +107,12 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Touchless.Vision">
+      <HintPath>..\DLL\Touchless.Vision.dll</HintPath>
+    </Reference>
+    <Reference Include="WebCamLib">
+      <HintPath>..\DLL\WebCamLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cls_Main_Huy.cs" />
@@ -247,6 +253,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="TacVu\BLL_TacVu.cs" />
+    <Compile Include="TacVu\BLL_TacVu_Huy.cs" />
     <Compile Include="TacVu\frm_CheckIn.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -46,17 +46,23 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.dgvHoiVienList = new DevExpress.XtraGrid.GridControl();
-            this.gvMemberPackage = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvMemberList = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colstt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colgioitinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmavach = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsodienthoai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoiVienList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvMemberPackage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMemberList)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -116,6 +122,7 @@
             this.btnadd.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Add_Folder_32;
             this.btnadd.Id = 1;
             this.btnadd.Name = "btnadd";
+            this.btnadd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnadd_ItemClick);
             // 
             // btnupdate
             // 
@@ -123,6 +130,7 @@
             this.btnupdate.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Updates_32;
             this.btnupdate.Id = 2;
             this.btnupdate.Name = "btnupdate";
+            this.btnupdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnupdate_ItemClick);
             // 
             // btndelete
             // 
@@ -130,6 +138,7 @@
             this.btndelete.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Delete_32;
             this.btndelete.Id = 3;
             this.btndelete.Name = "btndelete";
+            this.btndelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btndelete_ItemClick);
             // 
             // btnxuatexcel
             // 
@@ -137,6 +146,7 @@
             this.btnxuatexcel.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.MS_Excel_Filled_32;
             this.btnxuatexcel.Id = 4;
             this.btnxuatexcel.Name = "btnxuatexcel";
+            this.btnxuatexcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnxuatexcel_ItemClick);
             // 
             // btncaplaithe
             // 
@@ -144,6 +154,7 @@
             this.btncaplaithe.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Security_Checked_32;
             this.btncaplaithe.Id = 8;
             this.btncaplaithe.Name = "btncaplaithe";
+            this.btncaplaithe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btncaplaithe_ItemClick);
             // 
             // btnthoat
             // 
@@ -151,6 +162,7 @@
             this.btnthoat.Glyph = global::VnApptech_GYM_Soft.Properties.Resources.Exit_32;
             this.btnthoat.Id = 5;
             this.btnthoat.Name = "btnthoat";
+            this.btnthoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnthoat_ItemClick);
             // 
             // bar3
             // 
@@ -211,28 +223,36 @@
             this.dgvHoiVienList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHoiVienList.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHoiVienList.Location = new System.Drawing.Point(0, 40);
-            this.dgvHoiVienList.MainView = this.gvMemberPackage;
+            this.dgvHoiVienList.MainView = this.gvMemberList;
             this.dgvHoiVienList.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHoiVienList.MenuManager = this.barManager1;
             this.dgvHoiVienList.Name = "dgvHoiVienList";
             this.dgvHoiVienList.Size = new System.Drawing.Size(840, 282);
             this.dgvHoiVienList.TabIndex = 15;
             this.dgvHoiVienList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvMemberPackage});
+            this.gvMemberList});
             // 
-            // gvMemberPackage
+            // gvMemberList
             // 
-            this.gvMemberPackage.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvMemberList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colstt,
             this.gridColumn1,
             this.gridColumn2,
             this.colgioitinh,
             this.colmavach,
-            this.colsodienthoai});
-            this.gvMemberPackage.GridControl = this.dgvHoiVienList;
-            this.gvMemberPackage.Name = "gvMemberPackage";
-            this.gvMemberPackage.OptionsView.ShowAutoFilterRow = true;
-            this.gvMemberPackage.OptionsView.ShowGroupPanel = false;
+            this.colsodienthoai,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6,
+            this.gridColumn7,
+            this.gridColumn8});
+            this.gvMemberList.GridControl = this.dgvHoiVienList;
+            this.gvMemberList.Name = "gvMemberList";
+            this.gvMemberList.OptionsView.ShowAutoFilterRow = true;
+            this.gvMemberList.OptionsView.ShowGroupPanel = false;
+            this.gvMemberList.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvMemberList_RowClick);
+            this.gvMemberList.DoubleClick += new System.EventHandler(this.gvMemberList_DoubleClick);
             // 
             // colstt
             // 
@@ -258,7 +278,8 @@
             this.gridColumn1.AppearanceHeader.Options.UseFont = true;
             this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn1.Caption = "Họ và tên";
+            this.gridColumn1.Caption = "Họ";
+            this.gridColumn1.FieldName = "Ho";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
@@ -272,10 +293,11 @@
             this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn2.Caption = "Ngày sinh";
+            this.gridColumn2.FieldName = "NamSinh";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.VisibleIndex = 3;
             this.gridColumn2.Width = 153;
             // 
             // colgioitinh
@@ -285,10 +307,11 @@
             this.colgioitinh.AppearanceHeader.Options.UseTextOptions = true;
             this.colgioitinh.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colgioitinh.Caption = "Giới tính";
+            this.colgioitinh.FieldName = "Gioitinh";
             this.colgioitinh.Name = "colgioitinh";
             this.colgioitinh.OptionsColumn.AllowEdit = false;
             this.colgioitinh.Visible = true;
-            this.colgioitinh.VisibleIndex = 3;
+            this.colgioitinh.VisibleIndex = 4;
             this.colgioitinh.Width = 153;
             // 
             // colmavach
@@ -298,10 +321,11 @@
             this.colmavach.AppearanceHeader.Options.UseTextOptions = true;
             this.colmavach.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colmavach.Caption = "Mã thẻ";
+            this.colmavach.FieldName = "MaThe";
             this.colmavach.Name = "colmavach";
             this.colmavach.OptionsColumn.AllowEdit = false;
             this.colmavach.Visible = true;
-            this.colmavach.VisibleIndex = 4;
+            this.colmavach.VisibleIndex = 5;
             this.colmavach.Width = 153;
             // 
             // colsodienthoai
@@ -311,11 +335,74 @@
             this.colsodienthoai.AppearanceHeader.Options.UseTextOptions = true;
             this.colsodienthoai.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colsodienthoai.Caption = "Điện thoại";
+            this.colsodienthoai.FieldName = "DienThoai";
             this.colsodienthoai.Name = "colsodienthoai";
             this.colsodienthoai.OptionsColumn.AllowEdit = false;
             this.colsodienthoai.Visible = true;
-            this.colsodienthoai.VisibleIndex = 5;
+            this.colsodienthoai.VisibleIndex = 6;
             this.colsodienthoai.Width = 164;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.Caption = "Tên";
+            this.gridColumn3.FieldName = "Ten";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn4.Caption = "Địa chỉ";
+            this.gridColumn4.FieldName = "DiaChi";
+            this.gridColumn4.Name = "gridColumn4";
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn5.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn5.Caption = "Email";
+            this.gridColumn5.FieldName = "Email";
+            this.gridColumn5.Name = "gridColumn5";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn6.Caption = "CMND";
+            this.gridColumn6.FieldName = "CMND";
+            this.gridColumn6.Name = "gridColumn6";
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn7.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn7.Caption = "Hình ảnh";
+            this.gridColumn7.FieldName = "HinhAnh";
+            this.gridColumn7.Name = "gridColumn7";
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn8.Caption = "Mã hội viên";
+            this.gridColumn8.FieldName = "MaHoiVien";
+            this.gridColumn8.Name = "gridColumn8";
             // 
             // Frm_HoiVien_Main
             // 
@@ -337,7 +424,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoiVienList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvMemberPackage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMemberList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -360,7 +447,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraBars.BarStaticItem lblerr;
         private DevExpress.XtraGrid.GridControl dgvHoiVienList;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvMemberPackage;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvMemberList;
         private DevExpress.XtraGrid.Columns.GridColumn colstt;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
@@ -368,5 +455,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colmavach;
         private DevExpress.XtraGrid.Columns.GridColumn colsodienthoai;
         private DevExpress.XtraBars.BarButtonItem btncaplaithe;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
     }
 }

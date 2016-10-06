@@ -37,7 +37,7 @@
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=8.0.0.0, Culture=neutral, PublicKeyToken=5fd520d36328f741, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\DevComponents.DotNetBar2.dll</HintPath>
+      <HintPath>..\DLL\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
@@ -84,11 +84,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DLLDungChung">
-      <HintPath>E:\Download\ExamCSharp\ExamQLBH\ExamQLBH\bin\Debug\DLLDungChung.dll</HintPath>
+      <HintPath>..\DLL\DLLDungChung.dll</HintPath>
     </Reference>
     <Reference Include="MyLibrarySoft, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MyLibrarySoft.dll</HintPath>
+      <HintPath>..\DLL\MyLibrarySoft.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -107,13 +107,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Touchless.Vision, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Touchless.Vision.dll</HintPath>
+    <Reference Include="Touchless.Vision">
+      <HintPath>..\DLL\Touchless.Vision.dll</HintPath>
     </Reference>
-    <Reference Include="WebCamLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\WebCamLib.dll</HintPath>
+    <Reference Include="WebCamLib">
+      <HintPath>..\DLL\WebCamLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

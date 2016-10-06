@@ -130,8 +130,6 @@ namespace VnApptech_GYM_Soft.TacVu
         private void gvMemberList_DoubleClick(object sender, EventArgs e)
         {
             UpdateMemberItem();
-        }
-
-       
+        }       
     }
 }

@@ -42,9 +42,32 @@ namespace VnApptech_GYM_Soft.DanhMuc
                 MessageBox.Show("Exception: Lỗi form Frm_NhanVien_Them: hàm LoadDanhSachTaiKhoanLenComboBox - " + ex.Message);
             }
         }
+        private void LoadDanhPhongTapLenComboBox()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = bd.LayThongTinDanhSachPhongTap(ref err);
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Form Frm_NhanVien_Them, Hàm LoadDanhPhongTapLenComboBox: Chưa lấy được dử liệu trong bảng PhongTap");
+                }
+                else
+                {
+                    cboPhongTap.DataSource = dt;
+                    cboPhongTap.ValueMember = "MaPhongTap";
+                    cboPhongTap.DisplayMember = "TenPhongTap";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: Lỗi form Frm_NhanVien_Them: hàm LoadDanhPhongTapLenComboBox - " + ex.Message);
+            }
+        }
         private void Frm_NhanVien_THem_Load(object sender, EventArgs e)
         {
             LoadDanhSachTaiKhoanLenComboBox();
+            LoadDanhPhongTapLenComboBox();
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -58,7 +81,17 @@ namespace VnApptech_GYM_Soft.DanhMuc
                         Phai = 1;
                     else
                         Phai = 0;
-                    if (bd.ThemNhanVien(txtTenNhanVien.Text, Phai, dtpNamSinh.Value, txtDienThoai.Text, txtTenDangNhap.Text, int.Parse(cboLoaiTaiKhoan.SelectedValue.ToString()), txtMatKhau.Text, 1) == true)
+                    if (cboLoaiTaiKhoan.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Bạn chưa chọn loại tài khoản.");
+                        return;
+                    }
+                    if (cboPhongTap.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Bạn chưa chọn phòng tập.");
+                        return;
+                    }
+                    if (bd.ThemNhanVien(ref err, txtTenNhanVien.Text, Phai, dtpNamSinh.Value, txtDienThoai.Text, txtTenDangNhap.Text, int.Parse(cboLoaiTaiKhoan.SelectedValue.ToString()), txtMatKhau.Text, 1, int.Parse(cboPhongTap.SelectedValue.ToString())) == true)
                     {
                         MessageBox.Show("Thêm loại nhân viên thành công");
                         txtDienThoai.Text = "";

@@ -51,7 +51,7 @@
             // 
             // dtbGioKetThuc
             // 
-            this.dtbGioKetThuc.CustomFormat = "hh:mm:ss";
+            this.dtbGioKetThuc.CustomFormat = "HH:mm:ss";
             this.dtbGioKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtbGioKetThuc.Location = new System.Drawing.Point(152, 95);
             this.dtbGioKetThuc.Name = "dtbGioKetThuc";

@@ -28,7 +28,7 @@ namespace VnApptech_GYM_Soft.DanhMuc
         {
             try
             {
-                DataTable DT_DanhSachLoaiKhachHang = bd.LayThongTinDanhSachCaLamViec(ref err);
+                dt_DanhSachLoaiKhachHang = bd.LayThongTinDanhSachCaLamViec(ref err);
                 dgvDanhSachCaLamViec.DataSource = dt_DanhSachLoaiKhachHang;
             }
             catch (Exception ex)

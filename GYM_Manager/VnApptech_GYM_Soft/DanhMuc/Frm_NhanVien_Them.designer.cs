@@ -54,6 +54,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.chkHienMatKhau = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cboPhongTap = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +93,7 @@
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 40);
-            this.barDockControl3.Size = new System.Drawing.Size(0, 321);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 362);
             // 
             // barManager2
             // 
@@ -133,7 +135,7 @@
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 361);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 402);
             this.barDockControl2.Size = new System.Drawing.Size(497, 21);
             // 
             // barDockControl4
@@ -141,19 +143,19 @@
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControl4.Location = new System.Drawing.Point(497, 40);
-            this.barDockControl4.Size = new System.Drawing.Size(0, 321);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 362);
             // 
             // cboLoaiTaiKhoan
             // 
             this.cboLoaiTaiKhoan.FormattingEnabled = true;
-            this.cboLoaiTaiKhoan.Location = new System.Drawing.Point(168, 223);
+            this.cboLoaiTaiKhoan.Location = new System.Drawing.Point(168, 255);
             this.cboLoaiTaiKhoan.Name = "cboLoaiTaiKhoan";
             this.cboLoaiTaiKhoan.Size = new System.Drawing.Size(292, 27);
             this.cboLoaiTaiKhoan.TabIndex = 74;
             // 
             // txtTenDangNhap
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(168, 270);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(168, 302);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(292, 27);
             this.txtTenDangNhap.TabIndex = 75;
@@ -207,7 +209,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 225);
+            this.label6.Location = new System.Drawing.Point(22, 257);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 19);
             this.label6.TabIndex = 63;
@@ -216,7 +218,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 273);
+            this.label5.Location = new System.Drawing.Point(22, 305);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 19);
             this.label5.TabIndex = 64;
@@ -261,7 +263,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 320);
+            this.label7.Location = new System.Drawing.Point(22, 352);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 19);
             this.label7.TabIndex = 64;
@@ -269,7 +271,7 @@
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(168, 315);
+            this.txtMatKhau.Location = new System.Drawing.Point(168, 347);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(219, 27);
@@ -278,7 +280,7 @@
             // chkHienMatKhau
             // 
             this.chkHienMatKhau.AutoSize = true;
-            this.chkHienMatKhau.Location = new System.Drawing.Point(400, 319);
+            this.chkHienMatKhau.Location = new System.Drawing.Point(400, 351);
             this.chkHienMatKhau.Name = "chkHienMatKhau";
             this.chkHienMatKhau.Size = new System.Drawing.Size(60, 23);
             this.chkHienMatKhau.TabIndex = 80;
@@ -286,21 +288,40 @@
             this.chkHienMatKhau.UseVisualStyleBackColor = true;
             this.chkHienMatKhau.CheckedChanged += new System.EventHandler(this.chkHienMatKhau_CheckedChanged);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(22, 218);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 19);
+            this.label8.TabIndex = 63;
+            this.label8.Text = "Phòng tập:";
+            // 
+            // cboPhongTap
+            // 
+            this.cboPhongTap.FormattingEnabled = true;
+            this.cboPhongTap.Location = new System.Drawing.Point(168, 216);
+            this.cboPhongTap.Name = "cboPhongTap";
+            this.cboPhongTap.Size = new System.Drawing.Size(292, 27);
+            this.cboPhongTap.TabIndex = 74;
+            // 
             // Frm_NhanVien_Them
             // 
             this.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 382);
+            this.ClientSize = new System.Drawing.Size(497, 423);
             this.Controls.Add(this.chkHienMatKhau);
             this.Controls.Add(this.txtMatKhau);
+            this.Controls.Add(this.cboPhongTap);
             this.Controls.Add(this.cboLoaiTaiKhoan);
             this.Controls.Add(this.txtTenDangNhap);
             this.Controls.Add(this.txtDienThoai);
             this.Controls.Add(this.dtpNamSinh);
             this.Controls.Add(this.radNu);
             this.Controls.Add(this.radNam);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtTenNhanVien);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -353,5 +374,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox chkHienMatKhau;
         private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.ComboBox cboPhongTap;
+        private System.Windows.Forms.Label label8;
     }
 }

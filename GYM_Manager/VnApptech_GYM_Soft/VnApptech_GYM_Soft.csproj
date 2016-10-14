@@ -172,6 +172,18 @@
     <Compile Include="DanhMuc\H_frm_MemberPackage_Main.Designer.cs">
       <DependentUpon>H_frm_MemberPackage_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\H_Frm_Practice_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\H_Frm_Practice_Main.Designer.cs">
+      <DependentUpon>H_Frm_Practice_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\H_Frm_Practice_Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\H_Frm_Practice_Modify.Designer.cs">
+      <DependentUpon>H_Frm_Practice_Modify.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\H_MemberPackage_Modify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +347,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\H_frm_MemberPackage_Main.resx">
       <DependentUpon>H_frm_MemberPackage_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\H_Frm_Practice_Main.resx">
+      <DependentUpon>H_Frm_Practice_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\H_Frm_Practice_Modify.resx">
+      <DependentUpon>H_Frm_Practice_Modify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\H_MemberPackage_Modify.resx">
       <DependentUpon>H_MemberPackage_Modify.cs</DependentUpon>

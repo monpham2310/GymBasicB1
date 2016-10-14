@@ -186,7 +186,6 @@
             this.gv_DSNhanVien.TabIndex = 5;
             this.gv_DSNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-        
             // 
             // barManager1
             // 

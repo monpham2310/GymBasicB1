@@ -51,6 +51,12 @@
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cboLoaiTaiKhoan = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboPhongTap = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtMatKhauCu = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtMatKhauMoi = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +70,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 277);
+            this.label5.Location = new System.Drawing.Point(12, 310);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 19);
             this.label5.TabIndex = 43;
@@ -166,7 +172,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 332);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 427);
             this.barDockControlBottom.Size = new System.Drawing.Size(497, 21);
             // 
             // barDockControlLeft
@@ -174,14 +180,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 40);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 292);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 387);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(497, 40);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 292);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 387);
             // 
             // label2
             // 
@@ -233,7 +239,7 @@
             // 
             // txtTenDangNhap
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(168, 274);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(168, 307);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(292, 27);
             this.txtTenDangNhap.TabIndex = 60;
@@ -241,7 +247,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 229);
+            this.label6.Location = new System.Drawing.Point(12, 262);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 19);
             this.label6.TabIndex = 43;
@@ -250,10 +256,61 @@
             // cboLoaiTaiKhoan
             // 
             this.cboLoaiTaiKhoan.FormattingEnabled = true;
-            this.cboLoaiTaiKhoan.Location = new System.Drawing.Point(168, 227);
+            this.cboLoaiTaiKhoan.Location = new System.Drawing.Point(168, 260);
             this.cboLoaiTaiKhoan.Name = "cboLoaiTaiKhoan";
             this.cboLoaiTaiKhoan.Size = new System.Drawing.Size(292, 27);
             this.cboLoaiTaiKhoan.TabIndex = 61;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 221);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 19);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Phòng tập:";
+            // 
+            // cboPhongTap
+            // 
+            this.cboPhongTap.FormattingEnabled = true;
+            this.cboPhongTap.Location = new System.Drawing.Point(168, 219);
+            this.cboPhongTap.Name = "cboPhongTap";
+            this.cboPhongTap.Size = new System.Drawing.Size(292, 27);
+            this.cboPhongTap.TabIndex = 61;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 355);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 19);
+            this.label8.TabIndex = 43;
+            this.label8.Text = "Mật khẩu cũ:";
+            // 
+            // txtMatKhauCu
+            // 
+            this.txtMatKhauCu.Location = new System.Drawing.Point(168, 352);
+            this.txtMatKhauCu.Name = "txtMatKhauCu";
+            this.txtMatKhauCu.PasswordChar = '*';
+            this.txtMatKhauCu.Size = new System.Drawing.Size(292, 27);
+            this.txtMatKhauCu.TabIndex = 60;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 397);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(111, 19);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "Mật khẩu mới:";
+            // 
+            // txtMatKhauMoi
+            // 
+            this.txtMatKhauMoi.Location = new System.Drawing.Point(168, 394);
+            this.txtMatKhauMoi.Name = "txtMatKhauMoi";
+            this.txtMatKhauMoi.PasswordChar = '*';
+            this.txtMatKhauMoi.Size = new System.Drawing.Size(292, 27);
+            this.txtMatKhauMoi.TabIndex = 60;
             // 
             // Frm_NhanVien_Sua
             // 
@@ -261,14 +318,20 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 353);
+            this.ClientSize = new System.Drawing.Size(497, 448);
+            this.Controls.Add(this.cboPhongTap);
             this.Controls.Add(this.cboLoaiTaiKhoan);
+            this.Controls.Add(this.txtMatKhauMoi);
+            this.Controls.Add(this.txtMatKhauCu);
             this.Controls.Add(this.txtTenDangNhap);
             this.Controls.Add(this.txtDienThoai);
             this.Controls.Add(this.dtpNamSinh);
             this.Controls.Add(this.radNu);
             this.Controls.Add(this.radNam);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtTenNhanVien);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
@@ -315,5 +378,11 @@
         private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.ComboBox cboLoaiTaiKhoan;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cboPhongTap;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtMatKhauMoi;
+        private System.Windows.Forms.TextBox txtMatKhauCu;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

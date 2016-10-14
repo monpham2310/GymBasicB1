@@ -79,8 +79,10 @@
             this.group_dulieu = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.page_danhmuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.group_danhmuc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.page_thongke = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -98,8 +100,6 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tabMain = new DevComponents.DotNetBar.TabControl();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
@@ -517,6 +517,7 @@
             this.btnmontap.Id = 64;
             this.btnmontap.Name = "btnmontap";
             this.btnmontap.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnmontap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnmontap_ItemClick);
             // 
             // btnchitiethoivien
             // 
@@ -568,6 +569,14 @@
             this.group_danhmuc.Name = "group_danhmuc";
             this.group_danhmuc.Text = "Nhân sự";
             // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnMemberPackage);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnmontap);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnphongtap);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Phòng GYM";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -582,6 +591,13 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnchitiethoivien);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Hội viên";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnaddcard);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btncheckin);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Kiểm soát";
             // 
             // page_thongke
             // 
@@ -725,21 +741,6 @@
             this.tabMain.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
             this.tabMain.Text = "tabControl1";
             this.tabMain.TabItemClose += new DevComponents.DotNetBar.TabStrip.UserActionEventHandler(this.tabMain_TabItemClose);
-            // 
-            // ribbonPageGroup4
-            // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.btnMemberPackage);
-            this.ribbonPageGroup4.ItemLinks.Add(this.btnmontap);
-            this.ribbonPageGroup4.ItemLinks.Add(this.btnphongtap);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "Phòng GYM";
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.btnaddcard);
-            this.ribbonPageGroup5.ItemLinks.Add(this.btncheckin);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "Kiểm soát";
             // 
             // Frm_Main
             // 

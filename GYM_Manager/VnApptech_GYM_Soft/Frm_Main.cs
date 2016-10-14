@@ -591,6 +591,24 @@ namespace VnApptech_GYM_Soft
             }
         }
 
+        private void btnmontap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sTieuDe = "Danh sách môn tập";
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabMain.CreateTab(sTieuDe);
+                t.Name = "H_Frm_Practice";
+                H_Frm_Practice_Main dt = new H_Frm_Practice_Main();
+                dt.deDongTab = new H_Frm_Practice_Main._deDongTab(vDOngTab);
+                dt.frm = this;
+                dt.TopLevel = false;
+                dt.Dock = DockStyle.Fill;
+                t.AttachedControl.Controls.Add(dt);
+                dt.Show();
+                tabMain.SelectedTabIndex = tabMain.Tabs.Count - 1;
+            }
+        }
+
           
 
     }

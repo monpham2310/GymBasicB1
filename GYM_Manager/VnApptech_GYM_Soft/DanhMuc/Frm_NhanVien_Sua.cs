@@ -47,6 +47,28 @@ namespace VnApptech_GYM_Soft.DanhMuc
                 MessageBox.Show("Exception: Lỗi form Frm_NhanVien_Sua: hàm LoadDanhSachTaiKhoanLenComboBox - " + ex.Message);
             }
         }
+        private void LoadDanhPhongTapLenComboBox()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = bd.LayThongTinDanhSachPhongTap(ref err);
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Form Frm_NhanVien_Them, Hàm LoadDanhPhongTapLenComboBox: Chưa lấy được dử liệu trong bảng PhongTap");
+                }
+                else
+                {
+                    cboPhongTap.DataSource = dt;
+                    cboPhongTap.ValueMember = "MaPhongTap";
+                    cboPhongTap.DisplayMember = "TenPhongTap";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: Lỗi form Frm_NhanVien_Them: hàm LoadDanhPhongTapLenComboBox - " + ex.Message);
+            }
+        }
         private void Frm_NhanVien_Sua_Load(object sender, EventArgs e)
         {
             try
@@ -55,6 +77,7 @@ namespace VnApptech_GYM_Soft.DanhMuc
                 MaNhanVien = Frm_NhanVien_Main.MaNhanVien;
                 MaTaiKhoan = Frm_NhanVien_Main.MaTaiKhoan;
                 LoadDanhSachTaiKhoanLenComboBox(int.Parse(MaTaiKhoan));
+                LoadDanhPhongTapLenComboBox();
                 
                 //load các thông tin của nhân viên
                 MaNhanVien = Frm_NhanVien_Main.MaNhanVien;
@@ -69,10 +92,11 @@ namespace VnApptech_GYM_Soft.DanhMuc
                     txtDienThoai.Text = dt.Rows[0]["DienThoai"].ToString();
                     txtTenDangNhap.Text = dt.Rows[0]["TenDangNhap"].ToString();
                     dtpNamSinh.Value = Convert.ToDateTime(dt.Rows[0]["NamSinh"].ToString());
-                    if (dt.Rows[0]["Phai"].ToString() == "True")
+                    if (dt.Rows[0]["GioiTinh"].ToString() == "True")
                         radNam.Checked = true;
                     else
                         radNu.Checked = true;
+                    cboPhongTap.SelectedValue = dt.Rows[0]["PhongTap"];
                 }
             }
             catch (Exception ex)
@@ -87,7 +111,11 @@ namespace VnApptech_GYM_Soft.DanhMuc
             Frm_NhanVien_Main.MaTaiKhoan = "";
             this.Close();
         }
-
+        private bool checkOldPassword(int id, string password)
+        {
+            DataTable result = bd.HSP_CheckOldPass(ref err, id, password);
+            return (result.Rows.Count > 0)? true : false;
+        }
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
@@ -102,13 +130,47 @@ namespace VnApptech_GYM_Soft.DanhMuc
                     Phai = 1;
                 else
                     Phai = 0;
-                if (bd.SuaThongTinNhanVienTheoMaNhanVien(int.Parse(MaNhanVien), txtTenNhanVien.Text, Phai, dtpNamSinh.Value, txtDienThoai.Text, txtTenDangNhap.Text, int.Parse(cboLoaiTaiKhoan.SelectedValue.ToString()), 1) == true)
+                if (cboLoaiTaiKhoan.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Sửa thông tin nhân viên thành công");
+                    MessageBox.Show("Bạn chưa chọn loại tài khoản.");
+                    return;
+                }
+                if (cboPhongTap.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Bạn chưa chọn phòng tập.");
+                    return;
+                }
+                if (!string.IsNullOrEmpty(txtMatKhauCu.Text))
+                {
+                    if (string.IsNullOrEmpty(txtMatKhauMoi.Text))
+                    {
+                        MessageBox.Show("Bạn chưa nhập mật khẩu mới.");
+                        return;
+                    }
+                    if (!checkOldPassword(int.Parse(MaNhanVien), txtMatKhauCu.Text))
+                    {
+                        MessageBox.Show("Mật khẩu cũ không khớp.");
+                        return;
+                    }
+                    if (bd.SuaThongTinNhanVienTheoMaNhanVien(ref err, int.Parse(MaNhanVien), txtTenNhanVien.Text, Phai, dtpNamSinh.Value, txtDienThoai.Text, txtTenDangNhap.Text, int.Parse(cboLoaiTaiKhoan.SelectedValue.ToString()), 1, int.Parse(cboPhongTap.SelectedValue.ToString()), txtMatKhauMoi.Text) == true)
+                    {
+                        MessageBox.Show("Sửa thông tin nhân viên thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa thất bại");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Sửa thất bại");
+                    if (bd.SuaThongTinNhanVienTheoMaNhanVien(ref err, int.Parse(MaNhanVien), txtTenNhanVien.Text, Phai, dtpNamSinh.Value, txtDienThoai.Text, txtTenDangNhap.Text, int.Parse(cboLoaiTaiKhoan.SelectedValue.ToString()), 1, int.Parse(cboPhongTap.SelectedValue.ToString())) == true)
+                    {
+                        MessageBox.Show("Sửa thông tin nhân viên thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa thất bại");
+                    }
                 }
             }
             catch (Exception ex)

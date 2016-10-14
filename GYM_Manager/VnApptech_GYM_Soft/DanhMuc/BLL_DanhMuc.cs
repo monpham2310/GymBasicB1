@@ -27,7 +27,7 @@ namespace VnApptech_GYM_Soft.DanhMuc
         /// <returns>Trả về dữ liệu danh sách ca làm việc của tất cả nhân viên</returns>
         public DataTable LayThongTinDanhSachCaLamViec(ref string err)
         {
-            return data.GetDataTable("B1_Psp_CaLamViec_selectall", CommandType.StoredProcedure, ref err);
+            return data.GetDataTable("B1_PSP_CaLamViec_SelectAll", CommandType.StoredProcedure, ref err);
         }
         /// <summary>
         /// Ngày tạo: 29-08-2016
@@ -136,9 +136,9 @@ namespace VnApptech_GYM_Soft.DanhMuc
         {
             return data.GetDataTable("B1_PSP_NhanVien_SelectAll", CommandType.StoredProcedure, ref err);
         }
-        public bool ThemNhanVien(string tenNhanVien, int Phai, DateTime NamSinh, string DienThoai, string TenDangNhap, int MaTaiKhoan, string matKhau, int TinhTrang)
+        public bool ThemNhanVien(ref string err,string tenNhanVien, int Phai, DateTime NamSinh, string DienThoai, string TenDangNhap, int MaTaiKhoan, string matKhau, int TinhTrang, int phong)
         {
-            return data.MyExcuteNonQuery("B1_PSP_NhanVien_Insert", CommandType.StoredProcedure,
+            return data.MyExcuteNonQuery("B1_PSP_NhanVien_Insert", CommandType.StoredProcedure, ref err,
                                     new SqlParameter("@TenNhanVien", tenNhanVien),
                                     new SqlParameter("@Phai", Phai),
                                     new SqlParameter("@NamSinh", NamSinh),
@@ -146,7 +146,8 @@ namespace VnApptech_GYM_Soft.DanhMuc
                                     new SqlParameter("@TenDangNhap", TenDangNhap),
                                      new SqlParameter("@MaTaiKhoan", MaTaiKhoan),
                                      new SqlParameter("@MatKhau", matKhau),
-                                    new SqlParameter("@TinhTrang", TinhTrang));
+                                    new SqlParameter("@TinhTrang", TinhTrang),
+                                    new SqlParameter("@PhongTap", phong));
         }
         public bool XoaNhanVienTheoMaNhanVien(int maNhanVien)
         {
@@ -158,9 +159,9 @@ namespace VnApptech_GYM_Soft.DanhMuc
             return data.GetDataTable("B1_PSP_NhanVien_Select_MaNhanVien", CommandType.StoredProcedure, ref err,
                                     new SqlParameter("@MaNhanVien", maNhanVien));
         }
-        public bool SuaThongTinNhanVienTheoMaNhanVien(int maNhanVien, string tenNhanVien, int phai, DateTime namSinh, string dienThoai, string tenDangNhap, int maTaiKhoan, int tinhTrang)
+        public bool SuaThongTinNhanVienTheoMaNhanVien(ref string err,int maNhanVien, string tenNhanVien, int phai, DateTime namSinh, string dienThoai, string tenDangNhap, int maTaiKhoan, int tinhTrang, int phong)
         {
-            return data.MyExcuteNonQuery("B1_PSP_NhanVien_Update_MaNhanVien", CommandType.StoredProcedure,
+            return data.MyExcuteNonQuery("B1_PSP_NhanVien_Update_MaNhanVien", CommandType.StoredProcedure,ref err,
                                     new SqlParameter("@MaNhanVien", maNhanVien),
                                     new SqlParameter("@TenNhanVien", tenNhanVien),
                                     new SqlParameter("@Phai", phai),
@@ -168,7 +169,26 @@ namespace VnApptech_GYM_Soft.DanhMuc
                                     new SqlParameter("@DienThoai", dienThoai),
                                     new SqlParameter("@TenDangNhap", tenDangNhap),
                                     new SqlParameter("@MaTaiKhoan", maTaiKhoan),
-                                    new SqlParameter("@TinhTrang", tinhTrang));
+                                    new SqlParameter("@TinhTrang", tinhTrang),
+                                    new SqlParameter("@PhongTap", phong));
+        }
+        public bool SuaThongTinNhanVienTheoMaNhanVien(ref string err, int maNhanVien, string tenNhanVien, int phai, DateTime namSinh, string dienThoai, string tenDangNhap, int maTaiKhoan, int tinhTrang, int phong, string matkhaumoi)
+        {
+            return data.MyExcuteNonQuery("B1_PSP_NhanVien_Update_MaNhanVien_MK", CommandType.StoredProcedure, ref err,
+                                    new SqlParameter("@MaNhanVien", maNhanVien),
+                                    new SqlParameter("@TenNhanVien", tenNhanVien),
+                                    new SqlParameter("@Phai", phai),
+                                    new SqlParameter("@NamSinh", namSinh),
+                                    new SqlParameter("@DienThoai", dienThoai),
+                                    new SqlParameter("@TenDangNhap", tenDangNhap),
+                                    new SqlParameter("@MaTaiKhoan", maTaiKhoan),
+                                    new SqlParameter("@TinhTrang", tinhTrang),
+                                    new SqlParameter("@PhongTap", phong),
+                                    new SqlParameter("@MatKhau", matkhaumoi));
+        }
+        public DataTable HSP_CheckOldPass(ref string err, int id, string password)
+        {
+            return data.GetDataTable("B1_HSP_CheckOldPassword", CommandType.StoredProcedure, ref err, new SqlParameter("@MaNhanVien", id), new SqlParameter("@MatKhau", password));
         }
         #endregion
 
@@ -176,6 +196,11 @@ namespace VnApptech_GYM_Soft.DanhMuc
         public DataTable LayThongTinDanhSachTaiKhoan(ref string err)
         {
             return data.GetDataTable("B1_PSP_TaiKhoan_SelectAll", CommandType.StoredProcedure, ref err);
+        }
+        
+        public DataTable LayThongTinDanhSachPhongTap(ref string err)
+        {
+            return data.GetDataTable("B1_PSP_PhongTap_SelectAll", CommandType.StoredProcedure, ref err);
         }
 
         public bool ThemTaiKhoan(string tenTaiKhoan, int TinhTrang)

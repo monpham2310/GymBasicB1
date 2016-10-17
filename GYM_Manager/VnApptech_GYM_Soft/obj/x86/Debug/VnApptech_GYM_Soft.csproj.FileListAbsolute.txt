@@ -210,3 +210,5 @@ D:\MyJobs\Vnaptech\GymBasicB1\GYM_Manager\VnApptech_GYM_Soft\obj\x86\Debug\VnApp
 D:\MyJobs\Vnaptech\GymBasicB1\GYM_Manager\VnApptech_GYM_Soft\obj\x86\Debug\VnApptech_PoolMan_Soft.exe.licenses
 D:\MyJobs\Vnaptech\GymBasicB1\GYM_Manager\VnApptech_GYM_Soft\obj\x86\Debug\VnApptech_GYM_Soft.DanhMuc.H_Frm_Practice_Main.resources
 D:\MyJobs\Vnaptech\GymBasicB1\GYM_Manager\VnApptech_GYM_Soft\obj\x86\Debug\VnApptech_GYM_Soft.DanhMuc.H_Frm_Practice_Modify.resources
+D:\MyJobs\Vnaptech\GymBasicB1\GYM_Manager\VnApptech_GYM_Soft\obj\x86\Debug\VnApptech_GYM_Soft.DanhMuc.H_Frm_Club_Main.resources
+D:\MyJobs\Vnaptech\GymBasicB1\GYM_Manager\VnApptech_GYM_Soft\obj\x86\Debug\VnApptech_GYM_Soft.DanhMuc.H_Frm_Club_Modify.resources

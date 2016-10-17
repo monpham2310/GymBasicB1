@@ -509,6 +509,7 @@
             this.btnphongtap.Id = 63;
             this.btnphongtap.Name = "btnphongtap";
             this.btnphongtap.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnphongtap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnphongtap_ItemClick);
             // 
             // btnmontap
             // 

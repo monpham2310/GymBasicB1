@@ -68,3 +68,41 @@ create proc dbo.HSP_AddMemberPackage
 @turnNumber int
 as
 	insert into GYM_GoiTap(LoaiGoiTap, MonTap, PhongTap, TenGoiTap, SoNgay, SoLanTap, GioBD, GioKT, DonGia, HinhThucTap) values(@packageType, @subjectId, @roomId, @packageName, @dayNumber, @turnNumber, @startTime, @endTime, @price, @type)
+go
+create proc B1_HSP_GetAllClub
+as
+	select MaPhongTap,TenPhongTap,SoNguoiToiDa,DiaChi,SoDienThoai,GhiChu
+	from GYM_PhongTap
+	where TinhTrang = 1
+go
+create proc B1_HSP_DeleteClub
+@ClubId int
+as
+	update GYM_PhongTap
+	set TinhTrang = 0
+	where MaPhongTap = @ClubId
+go
+create proc B1_HSP_UpdateClub
+@ClubId int,
+@ClubName nvarchar(50),
+@NumberPeople int,
+@Address nvarchar(500),
+@Phone nvarchar(50),
+@Note nvarchar(500)
+as
+	update GYM_PhongTap
+	set TenPhongTap = @ClubName,
+		SoNguoiToiDa = @NumberPeople,
+		DiaChi = @Address,
+		SoDienThoai = @Phone,
+		GhiChu = @Note
+	where MaPhongTap = @ClubId
+go
+create proc B1_HSP_AddClub
+@ClubName nvarchar(50),
+@NumberPeople int,
+@Address nvarchar(500),
+@Phone nvarchar(50),
+@Note nvarchar(500)
+as
+	insert into GYM_PhongTap(TenPhongTap,SoNguoiToiDa,DiaChi,SoDienThoai,GhiChu,TinhTrang) values (@ClubName,@NumberPeople,@Address,@Phone,@Note,1)

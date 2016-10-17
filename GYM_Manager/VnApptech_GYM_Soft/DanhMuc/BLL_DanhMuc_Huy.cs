@@ -23,6 +23,10 @@ namespace VnApptech_GYM_Soft.DanhMuc
         bool H_DeletePractice(ref string err, int practiceId);
         bool H_UpdatePractice(ref string err, int practiceId, string practiceName);
         bool H_AddPractice(ref string err, string practiceName);
+        DataTable H_GetAllClubFromDB(ref string err);
+        bool H_DeleteClub(ref string err, int clubId);
+        bool H_UpdateClub(ref string err, int clubId, string clubName, int numberPeople, string address, string phone, string note);
+        bool H_AddClub(ref string err, string clubName, int numberPeople, string address, string phone, string note);
     }
 
     public partial class BLL_DanhMuc : IBLL_DanhMuc
@@ -116,5 +120,34 @@ namespace VnApptech_GYM_Soft.DanhMuc
                                             , new SqlParameter("@PracticeName", practiceName));
         }
 
+        public DataTable H_GetAllClubFromDB(ref string err)
+        {
+            return data.GetDataTable("B1_HSP_GetAllClub", CommandType.StoredProcedure, ref err);
+        }
+
+        public bool H_DeleteClub(ref string err, int clubId)
+        {
+            return data.MyExcuteNonQuery("B1_HSP_DeleteClub", CommandType.StoredProcedure, ref err, new SqlParameter("@ClubId", clubId));
+        }
+
+        public bool H_UpdateClub(ref string err, int clubId, string clubName, int numberPeople, string address, string phone, string note)
+        {
+            return data.MyExcuteNonQuery("B1_HSP_UpdateClub",CommandType.StoredProcedure,ref err,new SqlParameter("@ClubId", clubId)
+                                        , new SqlParameter("@ClubName", clubName)
+                                        , new SqlParameter("@NumberPeople", numberPeople)
+                                        , new SqlParameter("@Address", address)
+                                        , new SqlParameter("@Phone", phone)
+                                        , new SqlParameter("@Note", note));
+        }
+
+        public bool H_AddClub(ref string err, string clubName, int numberPeople, string address, string phone, string note)
+        {
+            return data.MyExcuteNonQuery("B1_HSP_AddClub", CommandType.StoredProcedure, ref err
+                                        , new SqlParameter("@ClubName", clubName)
+                                        , new SqlParameter("@NumberPeople", numberPeople)
+                                        , new SqlParameter("@Address", address)
+                                        , new SqlParameter("@Phone", phone)
+                                        , new SqlParameter("@Note", note));
+        }
     }
 }

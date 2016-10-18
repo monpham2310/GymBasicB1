@@ -89,3 +89,28 @@ create proc HSP_AddMemberDataNoneImg
 as
 	insert into GYM_HoiVien(Ho, Ten, Gioitinh, NamSinh, DiaChi, CMND, DienThoai, Email, MaThe)
 	values (@LastName, @FirstName, @Gender, @Birthday, @Address, @IdCard, @Phone, @Email, @Barcode)
+go
+ALTER proc [dbo].[B1_PSP_LayThongTinDangNhap]
+@taikhoan varchar(30),
+@matkhau varchar(30)
+as
+	select MaNhanVien,TenNhanVien,TenDangNhap,MatKhau,MaTaiKhoan,PhongTap  
+	from GYM_NhanVien
+	where TenDangNhap=@taikhoan and PWDCOMPARE(@matkhau,MatKhau)=1 and TinhTrang = 1
+go
+create proc [dbo].[B1_PSP_HienThiThongTinCheckin] 
+@maphongtap int
+as
+select distinct
+ ROW_NUMBER() over (order by (select 1)) as STT,
+ a.MaHoiVien,
+a.MaVach 
+,TenHoiVien
+,Convert(nvarchar(10),NamSinh,103) as NamSinh
+,GioVao
+,GioRa
+,DaRa
+,NgayMuon,GiaTien
+from (((HoiVien a inner join hoadon b on a.mahoivien =b.mahoivien)inner join the c on b.mahd=c.mahd)inner join chitietvaophong d on c.mathe=d.mathe)left join muonkhan e on e.mahoivien=a.mahoivien
+where day(giovao)=day(getdate()) and month(giovao)=month(getdate())and year(giovao)=year(getdate()) and MaPhongTap = @maphongtap
+order by GioVao desc

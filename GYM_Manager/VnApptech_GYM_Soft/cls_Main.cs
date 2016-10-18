@@ -69,6 +69,7 @@ namespace VnApptech_GYM_Soft
         public static int maCaLamViec;
         public static string tenCaLamViec;
         public static string maNhanVien, tenNhanVien, tenDangNhap, maTaiKhoan;
+        public static int _ClubId = 0;
        
         #region Các biến để lưu giá trị của chuỗi kết nối
         public static string serverName = "";

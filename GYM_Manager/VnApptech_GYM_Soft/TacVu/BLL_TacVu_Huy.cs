@@ -16,6 +16,7 @@ namespace VnApptech_GYM_Soft.TacVu
         bool UpdateMemberDataNoneImgToDB(ref string err, int memberId, string memberName, string barcode, bool gender, string idCard, DateTime birthday, string phone, string email, string address);
         bool AddMemberDataToDB(ref string err, string memberName, string barcode, bool gender, string idCard, DateTime birthday, string phone, string email, string address, byte[] imageData);
         bool AddMemberDataNoneImgToDB(ref string err, string memberName, string barcode, bool gender, string idCard, DateTime birthday, string phone, string email, string address);
+        DataTable H_GetHistoryInOutFromDB(ref string err, int clubId);
     }
 
     public partial class BLL_TacVu : IBLL_TacVu
@@ -94,6 +95,11 @@ namespace VnApptech_GYM_Soft.TacVu
                                         , new SqlParameter("@Phone", phone)
                                         , new SqlParameter("@Email", email)
                                         , new SqlParameter("@Address", address));
+        }
+
+        public DataTable H_GetHistoryInOutFromDB(ref string err, int clubId)
+        {
+            return data.GetDataTable("B1_PSP_HienThiThongTinCheckin", CommandType.StoredProcedure, ref err, new SqlParameter("@maphongtap", clubId));
         }
     }
 }

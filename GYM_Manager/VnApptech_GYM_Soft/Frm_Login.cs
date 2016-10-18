@@ -46,6 +46,7 @@ namespace VnApptech_GYM_Soft
                     cls_Main.maCaLamViec = Convert.ToInt32(cbocalamviec.SelectedValue.ToString());
                     cls_Main.tenCaLamViec = cbocalamviec.Text;
                     cls_Main.maNhanVien = dt.Rows[0]["MaNhanVien"].ToString();
+                    cls_Main._ClubId = int.Parse(dt.Rows[0]["PhongTap"].ToString());
                     
                     if (cls_Main.maTaiKhoan != "1" )
                     {

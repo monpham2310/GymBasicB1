@@ -96,6 +96,7 @@ namespace VnApptech_GYM_Soft.TacVu
             txtPractice.Text = "";
             txtRemainDay.Text = "";
             txtRemainTurn.Text = "";
+            lblNotice.Text = "";
             pbAvatar.Image = null;
         }
 
@@ -110,15 +111,18 @@ namespace VnApptech_GYM_Soft.TacVu
         {
             txtFullname.Text = dtDataOfMember.Rows[0]["TenHoiVien"].ToString();
             txtBirthday.Text = dtDataOfMember.Rows[0]["NamSinh"].ToString();
-            cbClub.SelectedValue = Convert.ToInt32(dtDataOfMember.Rows[0]["MaPhongTap"]);
             txtPractice.Text = dtDataOfMember.Rows[0]["TenMonTap"].ToString();
             txtPackageName.Text = dtDataOfMember.Rows[0]["TenGoiTap"].ToString();
             txtExprireDate.Text = dtDataOfMember.Rows[0]["NgayHetHan"].ToString();
             txtRemainDay.Text = dtDataOfMember.Rows[0]["songayconlai"].ToString();
             txtRemainTurn.Text = dtDataOfMember.Rows[0]["SoLanTapConLai"].ToString();
-            byte[] imagedata = (byte[])dtDataOfMember.Rows[0]["HinhAnh"];
-            MemoryStream ms = new MemoryStream(imagedata);
-            pbAvatar.Image = Image.FromStream(ms);
+            if (!string.IsNullOrEmpty(dtDataOfMember.Rows[0]["HinhAnh"].ToString()))
+            {
+                byte[] imagedata = (byte[])dtDataOfMember.Rows[0]["HinhAnh"];
+                MemoryStream ms = new MemoryStream(imagedata);
+                pbAvatar.Image = Image.FromStream(ms);
+            }
+            timer_Reset.Start();
         }
 
         private void insertNumberOfTurnInRoom(bool isPracticeFollowTurn)
@@ -137,9 +141,9 @@ namespace VnApptech_GYM_Soft.TacVu
         private void checkNumberOfTurnInRoomOfMember()
         {
             SoundPlayer sound = new SoundPlayer(Application.StartupPath + @"\RINGIN.WAV");
-            int roomId = int.Parse(dtDataOfMember.Rows[0]["MaPhongTap"].ToString());
+            int roomId = !string.IsNullOrEmpty(dtDataOfMember.Rows[0]["MaPhongTap"].ToString()) ? int.Parse(dtDataOfMember.Rows[0]["MaPhongTap"].ToString()) : 0;
             string billId = dtDataOfMember.Rows[0]["MaHD"].ToString();
-            bool isReserve = Convert.ToBoolean(dtDataOfMember.Rows[0]["TinhTrangBaoLuu"]);
+            bool isReserve = !string.IsNullOrEmpty(dtDataOfMember.Rows[0]["TinhTrangBaoLuu"].ToString()) ? Convert.ToBoolean(dtDataOfMember.Rows[0]["TinhTrangBaoLuu"]) : false;
             if (roomId == cls_Main._ClubId)
             {
                 DateTime dateExpire = Convert.ToDateTime(dtDataOfMember.Rows[0]["NgayHetHan"]);
@@ -203,7 +207,7 @@ namespace VnApptech_GYM_Soft.TacVu
             {
                 showInformOfMember();
                 lblNotice.ForeColor = Color.Red;
-                lblNotice.Text = "Hội viên Không tập đúng phòng tập!";                
+                lblNotice.Text = "Hội viên Không tập đúng phòng tập!Phòng tập của học viên này là:\n" + dtDataOfMember.Rows[0]["TenPhongTap"].ToString();                
                 sound.Play();
             }
         }
@@ -220,8 +224,7 @@ namespace VnApptech_GYM_Soft.TacVu
                         txtBarcode.SelectAll();                        
                         dtDataOfMember = bllTask.HSP_GetDataDataFollowBarcodeOfMember(ref err, txtBarcode.Text);
                         if (string.IsNullOrEmpty(dtDataOfMember.Rows[0]["MaHD"].ToString()))
-                        {
-                            string barcode = dtDataOfMember.Rows[0]["MaThe"].ToString();
+                        {                            
                             checkNumberOfTurnInRoomOfMember();
                             txtBarcode.Clear();
                         }
@@ -237,8 +240,7 @@ namespace VnApptech_GYM_Soft.TacVu
                     {
                         lblNotice.ForeColor = Color.Red;
                         lblNotice.Text = "Mã thẻ không có trong hệ thống, Xin kiểm tra lại!";
-                        lblNotice.Focus();
-                        lblNotice.Text = "";
+                        lblNotice.Focus();                        
                         resetControls();
                     }
 

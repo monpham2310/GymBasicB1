@@ -110,13 +110,9 @@ namespace VnApptech_GYM_Soft.TacVu
 
         public bool HSP_CheckExistsBarcodeInDB(ref string err, string barcode)
         {
-            DataTable dt = new DataTable();
-            dt = data.GetDataTable("HSP_CheckExistsBarcode", CommandType.StoredProcedure, ref err, new SqlParameter("@Barcode", barcode));
-            if (dt.Rows.Count > 0)
-            {
-                return Convert.ToBoolean(dt.Rows[0]);
-            }
-            return false;
+            object result = null;
+            result = data.myExcute_Scalar("HSP_CheckExistsBarcode", CommandType.StoredProcedure, ref err, new SqlParameter("@Barcode", barcode));
+            return result != null ? Convert.ToBoolean(result) : false;
         }
 
         public DataTable HSP_GetDataDataFollowBarcodeOfMember(ref string err, string barcode)

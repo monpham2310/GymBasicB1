@@ -115,10 +115,10 @@ from (((HoiVien a inner join hoadon b on a.mahoivien =b.mahoivien)inner join the
 where day(giovao)=day(getdate()) and month(giovao)=month(getdate())and year(giovao)=year(getdate()) and MaPhongTap = @maphongtap
 order by GioVao desc
 go
-create proc HSP_CheckExistsBarcode
+alter proc HSP_CheckExistsBarcode
 @Barcode nvarchar(20)
 as
-	if exists (select * from HoiVien where MaThe = @Barcode and TinhTrang = 1)
+	if exists (select * from GYM_HoiVien where MaThe = @Barcode and TinhTrang = 1)
 	begin
 		select 1
 	end
@@ -135,8 +135,9 @@ alter proc HSP_GetDataFollowBarcodeOfMember --'0000001'
 @Barcode nvarchar(20)
 as
 	select Ho + ' ' + Ten as TenHoiVien,Convert(nvarchar(10),NamSinh,103)as NamSinh ,Convert(int,(NgayHHTap-getdate())) as songayconlai,Convert(nvarchar(10),NgayHHTap,103) as NgayHetHan,HinhAnh,TenGoiTap,SoLanTapConLai,
-DienThoai as SoDienThoai, MaPhongTap, TinhTrangNo, b.DonGia, GiamGia, TienDaTra, TinhTrangBaoLuu, NgayBDTap, b.MaGoiTap, MaThe, GhiChu, TinhTrangTapLan,b.GioBD,b.GioKT, MaHD,TenMonTap
+DienThoai as SoDienThoai, b.MaPhongTap, TinhTrangNo, b.DonGia, GiamGia, TienDaTra, TinhTrangBaoLuu, NgayBDTap, b.MaGoiTap, MaThe, b.GhiChu, TinhTrangTapLan,b.GioBD,b.GioKT, MaHD,TenMonTap,TenPhongTap
 	from GYM_HoiVien a left join GYM_HoaDon b on a.MaHoiVien = b.MaHoiVien left join GYM_GoiTap c on b.MaGoiTap = c.MaGoiTap left join GYM_MonTap d on c.MonTap = d.MaMonTap
+	left join GYM_PhongTap e on b.MaPhongTap = e.MaPhongTap
 	where MaThe = @Barcode and a.TinhTrang = 1
 go
 alter proc HSP_InsertNumberOfTurnInRoom

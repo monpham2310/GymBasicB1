@@ -504,7 +504,6 @@
             this.lblNotice.Name = "lblNotice";
             this.lblNotice.Size = new System.Drawing.Size(488, 172);
             this.lblNotice.TabIndex = 6;
-            this.lblNotice.Text = "  ";
             // 
             // frm_CheckIn
             // 

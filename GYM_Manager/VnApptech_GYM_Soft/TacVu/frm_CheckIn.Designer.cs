@@ -53,7 +53,7 @@
             this.txtFullname = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblNumberTurn = new System.Windows.Forms.Label();
-            this.lblNumberPeople = new DevExpress.XtraEditors.GroupControl();
+            this.grInOut = new DevExpress.XtraEditors.GroupControl();
             this.dgvHistoryInOut = new DevExpress.XtraGrid.GridControl();
             this.gvHistoryInOut = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colstt = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,6 +65,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.timer_Datetime = new System.Windows.Forms.Timer(this.components);
             this.timer_Reset = new System.Windows.Forms.Timer(this.components);
+            this.lblNotice = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
@@ -72,8 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtExprireDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthday.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullname.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblNumberPeople)).BeginInit();
-            this.lblNumberPeople.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grInOut)).BeginInit();
+            this.grInOut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryInOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvHistoryInOut)).BeginInit();
             this.SuspendLayout();
@@ -362,16 +363,17 @@
             this.lblNumberTurn.TabIndex = 5;
             this.lblNumberTurn.Text = "Số lượt trong ngày:";
             // 
-            // lblNumberPeople
+            // grInOut
             // 
-            this.lblNumberPeople.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
-            this.lblNumberPeople.AppearanceCaption.Options.UseFont = true;
-            this.lblNumberPeople.Controls.Add(this.dgvHistoryInOut);
-            this.lblNumberPeople.Location = new System.Drawing.Point(727, 11);
-            this.lblNumberPeople.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lblNumberPeople.Name = "lblNumberPeople";
-            this.lblNumberPeople.Size = new System.Drawing.Size(490, 412);
-            this.lblNumberPeople.TabIndex = 4;
+            this.grInOut.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.grInOut.AppearanceCaption.Options.UseFont = true;
+            this.grInOut.Controls.Add(this.dgvHistoryInOut);
+            this.grInOut.Location = new System.Drawing.Point(727, 11);
+            this.grInOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grInOut.Name = "grInOut";
+            this.grInOut.Size = new System.Drawing.Size(490, 412);
+            this.grInOut.TabIndex = 4;
+            this.grInOut.Text = "Lịch sử ra vào";
             // 
             // dgvHistoryInOut
             // 
@@ -487,6 +489,23 @@
             // 
             this.timer_Reset.Tick += new System.EventHandler(this.timer_Reset_Tick);
             // 
+            // lblNotice
+            // 
+            this.lblNotice.AllowDrop = true;
+            this.lblNotice.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblNotice.Appearance.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblNotice.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblNotice.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblNotice.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lblNotice.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblNotice.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
+            this.lblNotice.Location = new System.Drawing.Point(727, 452);
+            this.lblNotice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lblNotice.Name = "lblNotice";
+            this.lblNotice.Size = new System.Drawing.Size(488, 172);
+            this.lblNotice.TabIndex = 6;
+            this.lblNotice.Text = "  ";
+            // 
             // frm_CheckIn
             // 
             this.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -494,9 +513,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 635);
+            this.Controls.Add(this.lblNotice);
             this.Controls.Add(this.lblNumberTurn);
             this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.lblNumberPeople);
+            this.Controls.Add(this.grInOut);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frm_CheckIn";
@@ -510,8 +530,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtExprireDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthday.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullname.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblNumberPeople)).EndInit();
-            this.lblNumberPeople.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grInOut)).EndInit();
+            this.grInOut.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryInOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvHistoryInOut)).EndInit();
             this.ResumeLayout(false);
@@ -545,7 +565,7 @@
         private DevExpress.XtraEditors.TextEdit txtFullname;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.Label lblNumberTurn;
-        private DevExpress.XtraEditors.GroupControl lblNumberPeople;
+        private DevExpress.XtraEditors.GroupControl grInOut;
         private DevExpress.XtraGrid.GridControl dgvHistoryInOut;
         private DevExpress.XtraGrid.Views.Grid.GridView gvHistoryInOut;
         private DevExpress.XtraGrid.Columns.GridColumn colstt;
@@ -557,5 +577,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private System.Windows.Forms.Timer timer_Datetime;
         private System.Windows.Forms.Timer timer_Reset;
+        private DevExpress.XtraEditors.LabelControl lblNotice;
     }
 }

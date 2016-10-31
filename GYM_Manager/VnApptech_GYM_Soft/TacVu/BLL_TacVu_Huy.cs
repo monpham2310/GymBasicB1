@@ -17,6 +17,12 @@ namespace VnApptech_GYM_Soft.TacVu
         bool AddMemberDataToDB(ref string err, string memberName, string barcode, bool gender, string idCard, DateTime birthday, string phone, string email, string address, byte[] imageData);
         bool AddMemberDataNoneImgToDB(ref string err, string memberName, string barcode, bool gender, string idCard, DateTime birthday, string phone, string email, string address);
         DataTable H_GetHistoryInOutFromDB(ref string err, int clubId);
+        bool HSP_CheckExistsBarcodeInDB(ref string err, string barcode);
+        DataTable HSP_GetDataDataFollowBarcodeOfMember(ref string err, string barcode);
+        int HSP_GetNumberOfTurnOfMember(ref string err, string billId);
+        void HSP_InsertNumberOfTurnInRoom(ref string err, int shiftId, string billId, bool isPracticeFollowTurn);
+        void HSP_CheckCardIsFirstTimeUse(ref string err, string billId);
+        bool HSP_CheckRemainNumberOfTurnOfMember(ref string err, string billId);
     }
 
     public partial class BLL_TacVu : IBLL_TacVu
@@ -100,6 +106,51 @@ namespace VnApptech_GYM_Soft.TacVu
         public DataTable H_GetHistoryInOutFromDB(ref string err, int clubId)
         {
             return data.GetDataTable("B1_PSP_HienThiThongTinCheckin", CommandType.StoredProcedure, ref err, new SqlParameter("@maphongtap", clubId));
+        }
+
+        public bool HSP_CheckExistsBarcodeInDB(ref string err, string barcode)
+        {
+            DataTable dt = new DataTable();
+            dt = data.GetDataTable("HSP_CheckExistsBarcode", CommandType.StoredProcedure, ref err, new SqlParameter("@Barcode", barcode));
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToBoolean(dt.Rows[0]);
+            }
+            return false;
+        }
+
+        public DataTable HSP_GetDataDataFollowBarcodeOfMember(ref string err, string barcode)
+        {
+            return data.GetDataTable("HSP_GetDataFollowBarcodeOfMember", CommandType.StoredProcedure, ref err, new SqlParameter("@Barcode", barcode));
+        }
+
+        public int HSP_GetNumberOfTurnOfMember(ref string err, string billId)
+        {
+            object result = null;
+            result = data.myExcute_Scalar("HSP_GetNumberOfTurnOfMember", CommandType.StoredProcedure, ref err, new SqlParameter("@BillId", billId));
+            return result != null ? Convert.ToInt32(result) : 0;
+        }
+
+        public void HSP_InsertNumberOfTurnInRoom(ref string err, int shiftId, string billId, bool isPracticeFollowTurn)
+        {
+            if(!isPracticeFollowTurn)
+                data.MyExcuteNonQuery("HSP_InsertNumberOfTurnInRoom", CommandType.StoredProcedure, ref err, new SqlParameter("@Shift", shiftId)
+                                    , new SqlParameter("@Bill", billId));
+            else
+                data.MyExcuteNonQuery("HSP_InsertNumberOfTurnInRoom2", CommandType.StoredProcedure, ref err, new SqlParameter("@Shift", shiftId)
+                                    , new SqlParameter("@Bill", billId));
+        }
+
+        public void HSP_CheckCardIsFirstTimeUse(ref string err, string billId)
+        {
+            data.MyExcuteNonQuery("HSP_CheckCardIsFirstTimeUse", CommandType.StoredProcedure, ref err, new SqlParameter("@Bill", billId));
+        }
+
+        public bool HSP_CheckRemainNumberOfTurnOfMember(ref string err, string billId)
+        {
+            object result = null;
+            result = data.myExcute_Scalar("HSP_CheckRemainNumberOfTurnOfMember", CommandType.StoredProcedure, ref err, new SqlParameter("@BillId", billId));
+            return result != null ? Convert.ToBoolean(result) : false;
         }
     }
 }

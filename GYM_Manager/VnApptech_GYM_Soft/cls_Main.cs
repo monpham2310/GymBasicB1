@@ -17,7 +17,7 @@ namespace VnApptech_GYM_Soft
         //các biến này được lưu trong file config.ini
         //---------------07-09-2016------------------
         public static string title = "";
-        public static int numberCard = 0;//số ký tự của mã vạch và rfid
+        public static int LengthOfNumber = 7;//số ký tự của mã vạch và rfid
        // public static int  = 0;//0:mã vạch và mã rfid 125;1:vân tay; 2: mã rfid 13.5
        //danh sách hằng số cho phép lựa chọn thiết bị
         public static deviceType GetDeciceType(int type)
@@ -107,8 +107,8 @@ namespace VnApptech_GYM_Soft
                     {
                         switch (line.Substring(0, line.IndexOf('=')).ToLower())
                         {
-                            case "numbercard":
-                                numberCard = Convert.ToInt32(line.Substring(line.IndexOf('=') + 1));
+                            case "LengthOfNumber":
+                                LengthOfNumber = Convert.ToInt32(line.Substring(line.IndexOf('=') + 1));
                                 break;
                             case "title":
                                 title = line.Substring(line.IndexOf('=') + 1);

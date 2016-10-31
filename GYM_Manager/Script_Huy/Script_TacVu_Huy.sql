@@ -114,3 +114,89 @@ a.MaVach
 from (((HoiVien a inner join hoadon b on a.mahoivien =b.mahoivien)inner join the c on b.mahd=c.mahd)inner join chitietvaophong d on c.mathe=d.mathe)left join muonkhan e on e.mahoivien=a.mahoivien
 where day(giovao)=day(getdate()) and month(giovao)=month(getdate())and year(giovao)=year(getdate()) and MaPhongTap = @maphongtap
 order by GioVao desc
+go
+create proc HSP_CheckExistsBarcode
+@Barcode nvarchar(20)
+as
+	if exists (select * from HoiVien where MaThe = @Barcode and TinhTrang = 1)
+	begin
+		select 1
+	end
+	else
+	begin
+		select 0
+	end
+go
+alter table GYM_HoaDon add TinhTrangTapLan bit default 0
+alter table GYM_HoaDon add GioBD time
+alter table GYM_HoaDon add GioKT time
+go
+alter proc HSP_GetDataFollowBarcodeOfMember --'0000001'
+@Barcode nvarchar(20)
+as
+	select Ho + ' ' + Ten as TenHoiVien,Convert(nvarchar(10),NamSinh,103)as NamSinh ,Convert(int,(NgayHHTap-getdate())) as songayconlai,Convert(nvarchar(10),NgayHHTap,103) as NgayHetHan,HinhAnh,TenGoiTap,SoLanTapConLai,
+DienThoai as SoDienThoai, MaPhongTap, TinhTrangNo, b.DonGia, GiamGia, TienDaTra, TinhTrangBaoLuu, NgayBDTap, b.MaGoiTap, MaThe, GhiChu, TinhTrangTapLan,b.GioBD,b.GioKT, MaHD,TenMonTap
+	from GYM_HoiVien a left join GYM_HoaDon b on a.MaHoiVien = b.MaHoiVien left join GYM_GoiTap c on b.MaGoiTap = c.MaGoiTap left join GYM_MonTap d on c.MonTap = d.MaMonTap
+	where MaThe = @Barcode and a.TinhTrang = 1
+go
+alter proc HSP_InsertNumberOfTurnInRoom
+@Shift int,
+@Bill nchar(10)
+as	
+	if exists (select MaCTVP from GYM_ChiTietVaoPhong where MaCTLV = @Shift and MaHD = @Bill and DaRa = 0)
+	begin
+		declare @Id int
+		set @Id = (select MaCTVP from GYM_ChiTietVaoPhong where MaCTLV = @Shift and MaHD = @Bill and DaRa = 0)
+		update GYM_ChiTietVaoPhong
+		set DaRa = 1,
+			GioRa = GETDATE()
+		where MaCTVP = @Id
+	end	
+	insert into GYM_ChiTietVaoPhong(MaCTLV, MaHD) values (@Shift, @Bill)	
+go
+create proc HSP_InsertNumberOfTurnInRoom2
+@Shift int,
+@Bill nchar(10)
+as	
+	if exists (select MaCTVP from GYM_ChiTietVaoPhong where MaCTLV = @Shift and MaHD = @Bill and DaRa = 0)
+	begin
+		declare @Id int
+		set @Id = (select MaCTVP from GYM_ChiTietVaoPhong where MaCTLV = @Shift and MaHD = @Bill and DaRa = 0)
+		update GYM_ChiTietVaoPhong
+		set DaRa = 1,
+			GioRa = GETDATE()
+		where MaCTVP = @Id
+	end	
+	insert into GYM_ChiTietVaoPhong(MaCTLV, MaHD) values (@Shift, @Bill)
+	update GYM_HoaDon
+	set SoLanTapConLai -= 1
+	where MaHD = @Bill	
+go
+create proc HSP_CheckCardIsFirstTimeUse
+@Bill nchar(10)
+as
+	declare @numberOfTurn int
+	set @numberOfTurn = (select count(MaHD)
+							from GYM_ChiTietVaoPhong
+							where MaHD = @Bill)
+	if(@numberOfTurn = 1)
+	begin
+		declare @numberOfDate int
+		declare @packageId int
+		set @packageId = (select MaGoiTap from GYM_HoaDon where MaHD = @Bill)
+		set @numberOfDate = (select SoNgay from GYM_GoiTap where MaGoiTap = @packageId)
+		update GYM_HoaDon
+		set NgayBDTap = getdate(),
+			NgayHHTap = Dateadd(dd, @numberOfDate, getdate())
+		where MaHD = @Bill 
+	end
+go
+create proc HSP_CheckRemainNumberOfTurnOfMember
+@BillId nchar(10)
+as
+	declare @remainTurn int
+	set @remainTurn = (select SoLanTapConLai from GYM_HoaDon where MaHD = @BillId)
+	if(@remainTurn > 0)
+		select 1
+	else
+		select 0
